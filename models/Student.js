@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Student = new Schema ({
+const StudentSchema = new Schema ({
     firstname: {
         type: String, 
         required: true
@@ -19,7 +19,7 @@ const Student = new Schema ({
         required: true
     },
     grade: {
-        type: Integer,
+        type: Number,
         required: true
     },
     // teacher is an object that stores the teacher ID

@@ -1,9 +1,9 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-const app = express();
 const routes = require("./routes");
 const mongoose = require("mongoose");
+const app = express();
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB and creates DB which will not show data until data is created
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/classroom", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/classroom", { useNewUrlParser: true , useUnifiedTopology: true });
 
 // Send every other request to the React app
 // Define any API routes before this runs
