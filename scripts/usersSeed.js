@@ -29,24 +29,24 @@ const usersSeed = [
         teacher: true
     },
     {
-        username: "",
+        username: "coolmom",
         password: "bestparent1",
-        firstname: "",
-        lastname: "Frizzle",
+        firstname: "June",
+        lastname: "Li",
         teacher: false
     },
     {
-        username: "",
+        username: "maggie_f",
         password: "bestparent2",
-        firstname: "Valerie",
-        lastname: "Frizzle",
+        firstname: "Margaret",
+        lastname: "Franklin",
         teacher: false
     },
     {
-        username: "",
+        username: "mr_perl",
         password: "bestparent3",
-        firstname: "Valerie",
-        lastname: "Frizzle",
+        firstname: "Noah",
+        lastname: "Perlstein",
         teacher: false
     }
 ]
