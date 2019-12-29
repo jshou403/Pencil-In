@@ -3,8 +3,16 @@ import React, { Component } from "react";
 import Wrapper from "../components/Wrapper";
 import Nav from "../components/Nav";
 import ChildCard from "../components/ChildCard";
+import Calendar from 'short-react-calendar';
 
 class ParentHome extends Component {
+
+    state = {
+        date: new Date(),
+    }
+
+    onChange = date => this.setState({ date })
+
     render() {
         return (
             <div>
@@ -12,6 +20,13 @@ class ParentHome extends Component {
                 <Wrapper>
 
                     <h1>Hello Parent!</h1>
+
+                    <Calendar 
+                        // onChange={this.onChange}
+                        // value={value}
+                        calendarType="US"
+                        oneWeekCalendar={true}
+                    />
 
                     <div className="row">
 
