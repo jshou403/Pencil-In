@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Wrapper from "../components/Wrapper";
 import Nav from "../components/Nav";
 import Calendar from 'short-react-calendar';
+import TeacherTable from "../components/TeacherTable"
+import AttendanceBtns from "../components/AttendanceBtns"
 
 
 
@@ -22,7 +24,11 @@ class TeacherHome extends Component {
                         calendarType="US"
                         oneWeekCalendar={true}
                     />
-                    <h1>Hello Teacher!</h1>
+                    <h1>Pencil-In</h1>
+                    <TeacherTable>
+                    <AttendanceBtns />
+                    </TeacherTable>
+         
 
                 </Wrapper>
             </div>

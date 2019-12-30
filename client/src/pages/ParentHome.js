@@ -10,8 +10,7 @@ class ParentHome extends Component {
     state = {
         date: new Date(),
     }
-
-    onChange = date => this.setState({ date })
+      onChange = date => this.setState({ date })
 
     render() {
         return (
@@ -26,7 +25,7 @@ class ParentHome extends Component {
                         // value={value}
                         calendarType="US"
                         oneWeekCalendar={true}
-                    />
+                    />0
 
                     <div className="row">
 
