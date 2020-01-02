@@ -3,7 +3,6 @@ import React from 'react';
 function AttendanceBtns() {
 	return (
         <div>
-        <p>Buttons Here</p>
 		<div className="btn-group btn-group-toggle" data-toggle="buttons">
 			<label className="btn btn-secondary active">
 				<input type="button" name="options" id="option1" checked /> Present
