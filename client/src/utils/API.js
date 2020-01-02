@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-    getBooks: function(){
-        
+    getStudents: function(){
+        return axios.get("/api/students")
     }
 }
