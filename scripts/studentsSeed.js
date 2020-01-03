@@ -13,8 +13,8 @@ const studentsSeed = [
         dob: 12 / 23 / 10,
         gender: "Male",
         grade: 3,
-        // teacher: ,
-        // parent: ,
+        teacher: "5e0921ab4065f5410c3b7678",
+        parent: "5e0921ab4065f5410c3b767d",
         present: false
     },
     {
@@ -23,7 +23,7 @@ const studentsSeed = [
         dob: 10 / 01 / 10,
         gender: "Male",
         grade: 3,
-        // teacher: ,
+        teacher: "5e0921ab4065f5410c3b7678",
         // parent: ,
         present: false
     },
@@ -33,28 +33,28 @@ const studentsSeed = [
         dob: 3 / 30 / 11,
         gender: "Female",
         grade: 3,
-        // teacher: ,
+        teacher: "5e0921ab4065f5410c3b7678",
         // parent: ,
         present: false
     },
     {
         firstname: "Jyoti",
-        lastname: "Kaur",
+        lastname: "Franklin",
         dob: 5 / 11 / 11,
         gender: "Female",
         grade: 3,
-        // teacher: ,
-        // parent: ,
+        teacher: "5e0921ab4065f5410c3b7678",
+        parent: "5e0921ab4065f5410c3b767c",
         present: false
     },
     {
         firstname: "Keesha",
         lastname: "Franklin",
-        dob: 7 / 3 / 10,
+        dob: 5 / 11 / 11,
         gender: "Female",
         grade: 3,
-        // teacher: ,
-        // parent: ,
+        teacher: "5e0921ab4065f5410c3b7678",
+        parent: "5e0921ab4065f5410c3b767c",
         present: false
     },
     {
@@ -63,7 +63,7 @@ const studentsSeed = [
         dob: 9 / 25 / 10,
         gender: "Female",
         grade: 3,
-        // teacher: ,
+        teacher: "5e0921ab4065f5410c3b7678",
         // parent: ,
         present: false
     },
@@ -73,7 +73,7 @@ const studentsSeed = [
         dob: 2 / 7 / 11,
         gender: "Male",
         grade: 3,
-        // teacher: ,
+        teacher: "5e0921ab4065f5410c3b7678",
         // parent: ,
         present: false
     },
@@ -83,7 +83,7 @@ const studentsSeed = [
         dob: 2 / 14 / 11,
         gender: "Male",
         grade: 3,
-        // teacher: ,
+        teacher: "5e0921ab4065f5410c3b7678",
         // parent: ,
         present: false
     },
@@ -93,8 +93,8 @@ const studentsSeed = [
         dob: 8 / 20 / 10,
         gender: "Female",
         grade: 3,
-        // teacher: ,
-        // parent: ,
+        teacher: "5e0921ab4065f5410c3b7678",
+        parent: "5e0921ab4065f5410c3b767b",
         present: false
     }
 ]

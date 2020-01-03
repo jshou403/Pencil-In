@@ -4,15 +4,41 @@ import Wrapper from "../components/Wrapper";
 import Nav from "../components/Nav";
 import ChildCard from "../components/ChildCard";
 import Calendar from 'short-react-calendar';
+import API from "../utils/API";
 
 class ParentHome extends Component {
-
     state = {
         date: new Date(),
+        userID: "",
+        students: []
     }
-      onChange = date => this.setState({ date })
+
+    componentDidMount() {
+        // this.loadUsername();
+        this.loadStudents();
+    }
+
+    onChange = date => this.setState({ date })
+
+    // loadUsername = (theUserId) => {
+    //     API.getUsers(this.state.userID)
+    //         .then(res => {
+    //             this.setState({ userID: res.data })
+    //         })
+    // }
+
+    loadStudents = () => {
+        API.getStudents()
+            .then(res => {
+                console.log("res.data = " + JSON.stringify(res.data))
+                this.setState({ students: res.data })
+            })
+    }
 
     render() {
+
+        console.log(`students = ${this.state.students}`)
+
         return (
             <div>
                 <Nav />
@@ -20,25 +46,25 @@ class ParentHome extends Component {
 
                     <h1>Hello Parent!</h1>
 
-                    <Calendar 
+                    <Calendar
                         // onChange={this.onChange}
                         // value={value}
                         calendarType="US"
                         oneWeekCalendar={true}
-                    />0
+                    />
 
                     <div className="row">
 
-                        {/* Display all children tied to this parent */}
-                        {/* {this.state.doggosState.map(dbchild => ( */}
-                        {/* <ChildCard
-                                onClick={() => this.whenClicked(dbchild.id)}
-                                image={dbchild.imageUrl}
-                                id={dbchild.id} key={dbchild.id}
-                                name={dbchild.name}
-                                teacher={dbchild.teacher} 
-                                /> */}
-                        {/* ))} */}
+                        {/* Display all students tied to this parent */}
+                        {this.state.students.map(student => (
+                            <ChildCard
+                                // onClick={() => this.whenClicked(student.id)}
+                                id={student._id}
+                                key={student._id}
+                                fname={student.firstname}
+                                lname={student.lastname}
+                            />
+                        ))}
 
                         {/* Temporary Display */}
                         <ChildCard /><ChildCard /><ChildCard />

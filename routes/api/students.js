@@ -4,7 +4,7 @@ const axios = require("axios");
 
 // Matches with "/api/students"
 router.route("/")
-  .get(studentsController.findAll);
-//   .post(studentsController.create);
+  .get(studentsController.findAll)
+  // .post(studentsController.create);
 
 module.exports = router; 
