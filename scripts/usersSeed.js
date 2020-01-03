@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+const bcrypt = require('bcryptjs');
 
 mongoose.connect(
   process.env.MONGODB_URI ||
@@ -9,7 +10,8 @@ mongoose.connect(
 const usersSeed = [
     {
         username: "mz-frizz-1",
-        password: "bestteacher1",
+
+        password: bcrypt.hashSync("bestteacher1", 10),
         firstname: "Valerie",
         lastname: "Frizzle",
         teacher: true
