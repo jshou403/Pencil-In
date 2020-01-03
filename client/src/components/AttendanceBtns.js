@@ -3,9 +3,9 @@ import React from 'react';
 function AttendanceBtns() {
 	return (
         <div>
-		<div className="btn-group btn-group-toggle" data-toggle="buttons">
+		<div className="btn-group" data-toggle="buttons">
 			<label className="btn btn-secondary active">
-				<input type="button" name="options" id="option1" checked /> Present
+				<input type="button" name="options" id="option1" /> Present
 			</label>
 			<label className="btn btn-secondary">
 				<input type="button" name="options" id="option2" /> Absent

@@ -1,37 +1,35 @@
-import React, { Component } from "react";
-import Wrapper from "../components/Wrapper";
-import Nav from "../components/Nav";
+import React, { Component } from 'react';
+import Wrapper from '../components/Wrapper';
+import Nav from '../components/Nav';
 import Calendar from 'short-react-calendar';
-import TeacherTable from "../components/TeacherTable"
-import AttendanceBtns from "../components/AttendanceBtns"
-import StudentList from "../components/StudentList"
-import API from "../utils/API"
-
-
+import TeacherTable from '../components/TeacherTable';
+import StudentList from '../components/StudentList';
+import API from '../utils/API';
 
 class TeacherHome extends Component {
     state = {
         date: new Date(),
-    }
-    
-    onChange = date => this.setState({ date })
-
-    state = {
         students: []
-      };
-    
-      componentDidMount() {
+    };
+
+    onChange = (date) => this.setState({ date });
+
+    componentDidMount() {
         this.loadStudents();
-      }
-    
-      loadStudents = () => {
+    }
+
+    loadStudents = () => {
         API.getStudents()
-          .then(res => this.setState({ students: res.data }))
-          .catch(err => console.log(err));
-      };
+            .then((res) => {
+                console.log(JSON.stringify(res.data))
+                this.setState({
+                    students: res.data
+                })
+            })
+            .catch((err) => console.log(err));
+    };
 
     render() {
-        // console.log("")
         return (
             <div>
                 <Nav />
@@ -42,27 +40,23 @@ class TeacherHome extends Component {
                         calendarType="US"
                         oneWeekCalendar={true}
                     />
-            
+
                     <h1>Pencil-In</h1>
                     <TeacherTable>
-                        <StudentList>
-                               {/* Display all students tied to this teacher */}
-            {/* {this.state.students.map(dbchild => ( */}
-            {/* <ChildCard
-        onClick={() => this.whenClicked(dbstudent.id)}
-        id={dbstudent.id} key={dbstudent.id}
-        name={dbstudent.firstname}
-        teacher={dbstudent.teacher} 
-        /> */}
-            {/* ))} */}
-                        </StudentList>
-                    <AttendanceBtns />
+                        {/* Display all students tied to this teacher */}
+                        {this.state.students.map((student) => (
+                            <StudentList
+                                // onClick={() => this.whenClicked(student._id)}
+                                id={student._id}
+                                key={student._id}
+                                fname={student.firstname}
+                                lname={student.lastname}
+                            />
+                        ))}
                     </TeacherTable>
-         
-
                 </Wrapper>
             </div>
-        )
+        );
     }
 }
 

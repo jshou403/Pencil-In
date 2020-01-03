@@ -5,7 +5,7 @@ function LoginBox(props) {
     <div className="container ">
         <p>Please log in to continue</p>
       <div className="form-group">
-        <label for="usernameInput">Username</label>
+        <label>Username</label>
         <input
           type="text"
           className="form-control"
@@ -13,7 +13,7 @@ function LoginBox(props) {
           id="user-input"
           placeholder=""
         />
-        <label for="passwordInput">Password</label>
+        <label>Password</label>
         <input
           type="text"
           className="form-control"
