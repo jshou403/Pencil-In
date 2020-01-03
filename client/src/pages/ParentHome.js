@@ -59,6 +59,7 @@ class ParentHome extends Component {
                         {this.state.students.map(student => (
                             <ChildCard
                                 // onClick={() => this.whenClicked(student.id)}
+                                id={student._id}
                                 key={student._id}
                                 fname={student.firstname}
                                 lname={student.lastname}
