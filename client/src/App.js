@@ -14,55 +14,57 @@ import LoginBox from "./components/LoginBox";
 import "./utils/sketchy-bootswatch.css";
 
 // temp auth
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true;
-    setTimeout(cb, 100); // fake async
-  },
-  signout(cb) {
-    this.isAuthenticated = false;
-    setTimeout(cb, 100); // fake async
-  }
-};
+// const fakeAuth = {
+//   isAuthenticated: false,
+//   authenticate(cb) {
+//     this.isAuthenticated = true;
+//     setTimeout(cb, 100); // fake async
+//   },
+//   signout(cb) {
+//     this.isAuthenticated = false;
+//     setTimeout(cb, 100); // fake async
+//   }
+// };
 
 // temp pages to display
 // const PublicPage = () => <h3>This is the Public Page</h3>
 // const ParentPage = () => <h3>This is the Parent Page</h3>
 
 //
-class LogIn extends Component {
-  state = {
-    redirectToReferrer: false
-  };
+// class LogIn extends Component {
 
-  // login method which calls fakeAuth.authenticate
-  login = () => {
-    fakeAuth.authenticate(() => {
-      this.setState(() => ({
-        redirectToReferrer: true
-      }));
-    });
-  };
+  // state = {
+  //   redirectToReferrer: false
+  // };
 
-  render() {
-    const { from } = this.props.location.state || { from: { pathname: "/" } };
-    const { redirectToReferrer } = this.state;
+  // // login method which calls fakeAuth.authenticate
+  // login = () => {
+  //   fakeAuth.authenticate(() => {
+  //     this.setState(() => ({
+  //       redirectToReferrer: true
+  //     }));
+  //   });
+  // };
 
-    if (redirectToReferrer === true) {
-      return <Redirect to={from} />;
-    }
+  // render() {
 
-    return (
-      <div>
-        <LoginBox 
-        onClick={this.login}/>
-        {/* <p>You must log in to view the page</p>
-        <button onClick={this.login}>Log in</button> */}
-      </div>
-    );
-  }
-}
+    // const { from } = this.props.location.state || { from: { pathname: "/" } };
+    // const { redirectToReferrer } = this.state;
+
+    // if (redirectToReferrer === true) {
+    //   return <Redirect to={from} />;
+    // }
+
+    // return (
+    //   <div>
+    //     <LoginBox 
+    //     onClick={this.login}/>
+    //     {/* <p>You must log in to view the page</p>
+    //     <button onClick={this.login}>Log in</button> */}
+    //   </div>
+    // );
+//   }
+// }
 
 // Checks if the user is authenticated, if they are,
 // it renders the "component" prop. If not, it redirects
@@ -120,42 +122,42 @@ const AuthButton = withRouter(({ history }) =>
   )
 );
 
-export default function AuthTest() {
-  return (
-    <Router>
-      <div>
-        <AuthButton />
-        <ul>
-          <li>
-            <Link to="/login">Public Page</Link>
-          </li>
-          <li>
-            <Link to="/parent">Parent Page</Link>
-          </li>
-          <li>
-            <Link to="/teacher">Teacher Page</Link>
-          </li>
-        </ul>
-        <Route path="/login" component={LogIn} />
-        <ParentRoute path="/parent" component={ParentHome} />
-        <TeacherRoute path="/teacher" component={TeacherHome} />
-      </div>
-    </Router>
-  );
-}
-
-// class App extends Component {
-//   render() {
-//     return (
+// export default function AuthTest() {
+//   return (
+//     <Router>
 //       <div>
-//         <Router>
-//         <Route exact path="/" component={LogIn}/>
-//         <Route exact path="/parent" component={ParentHome}/>
-//         <Route exact path="/teacher" component={TeacherHome}/>
-//         </Router>
+//         <AuthButton />
+//         <ul>
+//           <li>
+//             <Link to="/login">Public Page</Link>
+//           </li>
+//           <li>
+//             <Link to="/parent">Parent Page</Link>
+//           </li>
+//           <li>
+//             <Link to="/teacher">Teacher Page</Link>
+//           </li>
+//         </ul>
+//         <Route path="/login" component={LogIn} />
+//         <ParentRoute path="/parent" component={ParentHome} />
+//         <TeacherRoute path="/teacher" component={TeacherHome} />
 //       </div>
-//     )
-//   }
+//     </Router>
+//   );
 // }
 
-// export default App;
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Router>
+        <Route exact path="/" component={LoginBox}/>
+        <Route exact path="/parent" component={ParentHome}/>
+        <Route exact path="/teacher" component={TeacherHome}/>
+        </Router>
+      </div>
+    )
+  }
+}
+
+export default App;

@@ -9,7 +9,7 @@ const db = require("../../models");
 // const router = require("express").Router();
 // const studentsController = require("../../controllers/studentsController");
 // const db = require("../models");
-
+// CODE BELOW REQUIRES ABOVE CONSTS
 // Matches with "/api/students"
 // router.route("/")
 //   .get(studentsController.findAll)
