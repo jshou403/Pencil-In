@@ -1,4 +1,4 @@
-const router = require("express").Router();
+// const router = require("express").Router();
 // const usersController = require("../../controllers/usersController");
 
 // Matches with "/api/users"
@@ -7,4 +7,4 @@ const router = require("express").Router();
 //   .post(usersController.create);
 
 // Exports to api/index.js
-module.exports = router; 
+// module.exports = router; 

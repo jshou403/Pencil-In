@@ -19,6 +19,7 @@ class TeacherHome extends Component {
     }
 
     loadStudents = () => {
+        console.log("loading students");
         API.getStudents()
             .then((res) => {
                 console.log(JSON.stringify(res.data))
@@ -49,8 +50,8 @@ class TeacherHome extends Component {
                                 // onClick={() => this.whenClicked(student._id)}
                                 id={student._id}
                                 key={student._id}
-                                fname={student.firstname}
-                                lname={student.lastname}
+                                firstName={student.firstname}
+                                lastName={student.lastname}
                             />
                         ))}
                     </TeacherTable>

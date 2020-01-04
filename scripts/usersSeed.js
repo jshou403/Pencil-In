@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+const bcrypt = require('bcryptjs');
 
 mongoose.connect(
   process.env.MONGODB_URI ||
@@ -9,42 +10,42 @@ mongoose.connect(
 const usersSeed = [
     {
         username: "mz-frizz-1",
-        password: "bestteacher1",
+        password: bcrypt.hashSync("bestteacher1", 10),
         firstname: "Valerie",
         lastname: "Frizzle",
         teacher: true
     },
     {
         username: "the_ratburn",
-        password: "bestteacher2",
+        password: bcrypt.hashSync("bestteacher2", 10),
         firstname: "Nigel",
         lastname: "Ratburn",
         teacher: true
     },
     {
         username: "herbie_g",
-        password: "bestteacher3",
+        password: bcrypt.hashSync("bestteacher3", 10),
         firstname: "Herbert",
         lastname: "Garrison",
         teacher: true
     },
     {
         username: "coolmom",
-        password: "bestparent1",
+        password: bcrypt.hashSync("bestparent1", 10),
         firstname: "June",
         lastname: "Li",
         teacher: false
     },
     {
         username: "maggie_f",
-        password: "bestparent2",
+        password: bcrypt.hashSync("bestparent2", 10),
         firstname: "Margaret",
         lastname: "Franklin",
         teacher: false
     },
     {
         username: "mr_perl",
-        password: "bestparent3",
+        password: bcrypt.hashSync("bestparent3", 10),
         firstname: "Noah",
         lastname: "Perlstein",
         teacher: false
