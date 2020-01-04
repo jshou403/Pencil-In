@@ -1,9 +1,25 @@
-const router = require("express").Router();
-const studentsController = require("../../controllers/studentsController");
+const express = require("express");
+const router = express.Router();
+// const router = require("express").Router();
+// const studentsController = require("../../controllers/studentsController");
+const axios = require("axios");
+// const db = require("../models");
+const db = require("../../models");
 
-// Matches with "/api/users"
+// const router = require("express").Router();
+// const studentsController = require("../../controllers/studentsController");
+// const db = require("../models");
+
+// Matches with "/api/students"
 // router.route("/")
-//   .get(usersController.findAll)
-//   .post(usersController.create);
+//   .get(studentsController.findAll)
+// .post(studentsController.create);
+
+router.get("/", function (req, res) {
+  db.Student
+    .find(req.query)
+    .then(dbStudent => res.json(dbStudent))
+    .catch(err => res.status(422).json(err));
+})
 
 module.exports = router; 

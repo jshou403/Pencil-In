@@ -1,17 +1,24 @@
 import React from "react";
 
-function ChildCard(child) {
+function ChildCard(student) {
+
     return (
 
-        // child = name of prop being passed in 
+        // student = name of prop being passed in 
         // image, id, name, teacher, grade, onClick = named on ParentHome page
 
         <div className="card"
-            onClick={() => child.onClick(child.id)}>
-            {/* <img src={child.image} className="card-img-top" id={child.id} alt={child.name} /> */}
+        // onClick={() => student.onClick(student.id)}
+        >
             <div className="card-body">
-                <h4 className="card-text childgo-card-text">My Child's Name {child.name}</h4>
-                <p>Teacher {child.teacher} - Grade {child.grade}</p>
+                <h4 className="card-text student-card-text">                 {student.firstName} {student.lastName}</h4>
+
+                {student.attendanceStatus}
+                
+                <p>
+                    {/* Teacher {student.teacher} - */}
+                    Grade {student.grade}
+                </p>
             </div>
         </div>
     )

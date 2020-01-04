@@ -45,6 +45,12 @@ app.use(passport.session()) // calls serializeUser and deserializeUser
 app.use("/user", user);
 app.use("/api", routes);
 
+
+
+// app.use(routes);
+
+
+
 // Connect to the Mongo DB and creates DB which will not show data until data is created
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/classroom", { useNewUrlParser: true , useUnifiedTopology: true });
 
