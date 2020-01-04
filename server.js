@@ -17,7 +17,10 @@ if (process.env.NODE_ENV === "production") {
 // const usersController = require("./controllers/usersController");
 // app.use(usersController);
 
-app.use(routes);
+app.use(routes); //student
+// app.use("/student", routes);
+// app.use("/user", user);
+// app.use("/api", routes);
 
 // Connect to the Mongo DB and creates DB which will not show data until data is created
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/classroom", { useNewUrlParser: true , useUnifiedTopology: true });

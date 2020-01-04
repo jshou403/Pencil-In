@@ -61,8 +61,11 @@ class ParentHome extends Component {
                                 // onClick={() => this.whenClicked(student.id)}
                                 id={student._id}
                                 key={student._id}
-                                fname={student.firstname}
-                                lname={student.lastname}
+                                firstName={student.firstname}
+                                lastName={student.lastname}
+                                attendanceStatus={student.present}
+                                grade={student.grade}
+                                // teacher={student.teacher}
                             />
                         ))}
 
