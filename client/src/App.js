@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Link,
-  Redirect,
-  withRouter
+  // Switch,
+  // Link,
+  // Redirect,
+  // withRouter
 } from "react-router-dom";
 // import LogInPage from './pages/LogIn';
 import "./utils/sketchy-bootswatch.css";
 import LoginBox from "./components/LoginBox";
+import ParentHome from "./pages/ParentHome";
+import TeacherHome from "./pages/TeacherHome";
 import axios from "axios";
-// import ParentHome from "./pages/ParentHome";
-// import TeacherHome from "./pages/TeacherHome";
 
 class App extends Component {
   constructor() {
@@ -56,7 +56,7 @@ class App extends Component {
         console.log("Get user: no user");
         this.setState({
           loggedIn: false,
-          username: null,
+          username: null
           // password: null,
           // id: null,
           // teacher: false
@@ -71,7 +71,9 @@ class App extends Component {
         {/* <p>Hello {this.state.username}!</p> */}
         <Router>
           <div>
-            <LoginBox />
+            <Route exact path="/" component={LoginBox} />
+            <Route exact path="/parent" component={ParentHome} />
+            <Route exact path="/teacher" component={TeacherHome} />
           </div>
         </Router>
       </div>
@@ -90,6 +92,20 @@ class App extends Component {
     );
   }
 }
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Router>
+//         <Route exact path="/" component={LoginBox}/>
+//         <Route exact path="/parent" component={ParentHome}/>
+//         <Route exact path="/teacher" component={TeacherHome}/>
+//         </Router>
+//       </div>
+//     )
+//   }
+// }
 
 export default App;
 

@@ -49,8 +49,8 @@ class TeacherHome extends Component {
                                 // onClick={() => this.whenClicked(student._id)}
                                 id={student._id}
                                 key={student._id}
-                                fname={student.firstname}
-                                lname={student.lastname}
+                                firstName={student.firstname}
+                                lastName={student.lastname}
                             />
                         ))}
                     </TeacherTable>

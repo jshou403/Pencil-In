@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import {
   BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
+  // Route,
+  // Switch,
+  // Link,
   Redirect,
-  withRouter
+  // withRouter
 } from "react-router-dom";
 import axios from "axios";
 
