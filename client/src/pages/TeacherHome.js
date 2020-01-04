@@ -19,6 +19,7 @@ class TeacherHome extends Component {
     }
 
     loadStudents = () => {
+        console.log("loading students");
         API.getStudents()
             .then((res) => {
                 console.log(JSON.stringify(res.data))
