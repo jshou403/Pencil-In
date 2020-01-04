@@ -1,73 +1,85 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-import axios from 'axios'
-
+import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  Redirect,
+  withRouter
+} from "react-router-dom";
+import axios from "axios";
 
 class LoginBox extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      username: '',
-      password: '',
-      id: '',
+      username: "",
+      password: "",
+      id: "",
       redirectTo: null
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
     this.setState({
       //HERE?
       [event.target.name]: event.target.value
-    })
+    });
     console.log(this.state.username);
     console.log(this.state.password);
   }
 
   handleSubmit(event) {
-    event.preventDefault()
-    console.log('handleSubmit')
+    event.preventDefault();
+    console.log("handleSubmit");
 
     axios
-      .post('/user/login', {
+      .post("/user/login", {
         username: this.state.username,
         password: this.state.password
       })
       .then(response => {
-        console.log('login response: ')
-        console.log(response)
+        console.log("login response: ");
+        console.log(response);
 
         if (response.status === 200) {
           // update App.js state
-          this.props.updateUser({
+
+          //THIS FUNCTION WAS CAUSING AN ERROR SO I REMOVED PROPS AND IT SEEMS TO WORK?
+          
+          // this.props.updateUser({
+          this.updateUser({
             loggedIn: true,
             username: response.data.username,
             password: response.data.password
-          })
+          });
           // update the state to redirect to home
           this.setState({
-            redirectTo: '/'
-          })
+            redirectTo: "/"
+          });
         }
-      }).catch(error => {
-        console.log('login error: ')
-        console.log(error);
-
       })
+      .catch(error => {
+        console.log("login error: ");
+        console.log(error);
+      });
   }
 
   render() {
     if (this.state.redirectTo) {
-      return <Redirect to={{ pathname: this.state.redirectTo }} />
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
         <div>
           <p>Please log in to continue</p>
           <div className="form-group">
-            <label className="form-label" htmlFor="username">Username</label>
-            <input className="form-input"
+            <label className="form-label" htmlFor="username">
+              Username
+            </label>
+            <input
+              className="form-input"
               type="text"
               id="username"
               name="username"
@@ -75,8 +87,11 @@ class LoginBox extends Component {
               onChange={this.handleChange}
               placeholder="Username"
             />
-            <label className="form-label" htmlFor="password">Password</label>
-            <input className="form-input"
+            <label className="form-label" htmlFor="password">
+              Password
+            </label>
+            <input
+              className="form-input"
               type="password"
               id="password"
               name="password"
@@ -85,19 +100,20 @@ class LoginBox extends Component {
               placeholder="Password"
             />
           </div>
-          <button 
-          // location={props.location}
-            onClick={this.handleSubmit} type="submit">Log in</button>
+          <button
+            // location={props.location}
+            onClick={this.handleSubmit}
+            type="submit"
+          >
+            Log in
+          </button>
         </div>
       );
     }
   }
 }
-    
 
-    export default LoginBox;
-
-
+export default LoginBox;
 
 // function LoginBox(props) {
 //   return (

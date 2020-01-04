@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const passport = require("./passport");
 
+//FOR CREATING NEW USERS
 router.post("/", (req, res) => {
   console.log("user signup");
 
@@ -28,6 +29,7 @@ router.post("/", (req, res) => {
   });
 });
 
+// FOR LOGGING IN AS AN EXISTING USER
 router.post(
   "/login",
   function(req, res, next) {
@@ -36,23 +38,6 @@ router.post(
     next()
   },
   passport.authenticate("local"),
-//   , function (err, user, info) {
-//         console.log("error");
-//         console.log(err);
-//         console.log("user")
-//         console.log(user);
-//         console.log("info")
-//         console.log(info);
-
-//         if (err) {
-//             res.status(401).send(err);
-//         } else if(!user) {
-//             res.status(401).send(info);
-//         } else {
-//             next();
-//         }
-//     })(req, res)
-//     },
 function(req, res) {
         console.log("logged in", req.user);
         var userInfo = {
@@ -62,6 +47,7 @@ function(req, res) {
         console.log(userInfo);
     }
 );
+
 
 router.get("/", (req, res, next) => {
   console.log("===== user!!======");
