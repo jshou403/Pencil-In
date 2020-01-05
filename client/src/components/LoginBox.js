@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   // Route,
   // Switch,
   // Link,
@@ -13,6 +13,7 @@ class LoginBox extends Component {
   constructor() {
     super();
     this.state = {
+      loggedIn: false,
       username: "",
       password: "",
       id: "",
@@ -22,6 +23,11 @@ class LoginBox extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // updateUser(userObject) {
+  //   this.setState(userObject);
+  // }
+
+  // taking in username and password to be checked
   handleChange(event) {
     this.setState({
       //HERE?
@@ -45,20 +51,25 @@ class LoginBox extends Component {
         console.log(response);
 
         if (response.status === 200) {
+
+          console.log("response.status === " + response.status);
+          
           // update App.js state
 
           //THIS FUNCTION WAS CAUSING AN ERROR SO I REMOVED PROPS AND IT SEEMS TO WORK?
-          
-          // this.props.updateUser({
-          this.updateUser({
+
+          this.props.updateUser({
+          // this.updateUser({
             loggedIn: true,
             username: response.data.username,
             password: response.data.password
-          });
+          })
+          // .then(console.log(this.state.loggedIn));
           // update the state to redirect to home
           this.setState({
             redirectTo: "/"
-          });
+          })
+          // .then(console.log(this.state.redirectTo));
         }
       })
       .catch(error => {
@@ -114,32 +125,3 @@ class LoginBox extends Component {
 }
 
 export default LoginBox;
-
-// function LoginBox(props) {
-//   return (
-//     <div className="container ">
-//         <p>Please log in to continue</p>
-//       <div className="form-group">
-//         <label >Username</label>
-//         <input
-//           type="text"
-//           className="form-control"
-//           onChange={props.onChange}
-//           id="user-input"
-//           placeholder=""
-
-//         />
-//          <label>Password</label>
-//         <input
-//           type="text"
-//           className="form-control"
-//           onChange={props.onChange}
-//           id="password-input"
-//           placeholder=""
-//         />
-//       </div>
-//       <button location={props.location}
-//       onClick={props.onClick}>Log in</button>
-//     </div>
-//   );
-// }
