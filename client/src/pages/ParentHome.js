@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Wrapper from "../components/Wrapper";
 import Nav from "../components/Nav";
 import ChildCard from "../components/ChildCard";
@@ -20,24 +19,20 @@ class ParentHome extends Component {
 
     onChange = date => this.setState({ date })
 
-    // loadUsername = (theUserId) => {
-    //     API.getUsers(this.state.userID)
-    //         .then(res => {
-    //             this.setState({ userID: res.data })
-    //         })
-    // }
-
     loadStudents = () => {
+        console.log("PARENT HOME LOADED\nGetting students...");
         API.getStudents()
             .then(res => {
-                console.log("res.data = " + JSON.stringify(res.data))
+                console.log("--- Students Response Start ---")
+                console.log(JSON.stringify(res.data))
+                console.log("--- End Students Response ---")
                 this.setState({ students: res.data })
             })
     }
 
     render() {
 
-        console.log(`students = ${this.state.students}`)
+        // console.log(`this.state.students = ${this.state.students}`)
 
         return (
             <div>
@@ -68,9 +63,6 @@ class ParentHome extends Component {
                                 // teacher={student.teacher}
                             />
                         ))}
-
-                        {/* Temporary Display */}
-                        <ChildCard /><ChildCard /><ChildCard />
 
                     </div>
 

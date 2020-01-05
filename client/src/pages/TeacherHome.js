@@ -19,10 +19,12 @@ class TeacherHome extends Component {
     }
 
     loadStudents = () => {
-        console.log("loading students");
+        console.log("TEACHER HOME LOADED\nGetting students... ");
         API.getStudents()
             .then((res) => {
+                console.log("--- Students Response Start ---")
                 console.log(JSON.stringify(res.data))
+                console.log("--- End Students Response ---")
                 this.setState({
                     students: res.data
                 })
