@@ -13,6 +13,7 @@ class LoginBox extends Component {
   constructor() {
     super();
     this.state = {
+      loggedIn: false,
       username: "",
       password: "",
       id: "",
@@ -20,7 +21,12 @@ class LoginBox extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    // this.updateUser = this.updateUser.bind(this);
   }
+
+  // updateUser(userObject) {
+  //   this.setState(userObject);
+  // }
 
   handleChange(event) {
     this.setState({
@@ -44,13 +50,13 @@ class LoginBox extends Component {
         console.log("login response: ");
         console.log(response);
 
-        if (response.status === 200) {
+        if (response.status === 200 ) {
           // update App.js state
 
           //THIS FUNCTION WAS CAUSING AN ERROR SO I REMOVED PROPS AND IT SEEMS TO WORK?
           
           // this.props.updateUser({
-          this.updateUser({
+          this.props.updateUser({
             loggedIn: true,
             username: response.data.username,
             password: response.data.password
