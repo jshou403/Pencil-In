@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Route,
-  // Switch,
+  Switch
   // Link,
   // Redirect,
   // withRouter
@@ -19,8 +19,8 @@ class App extends Component {
     super();
     this.state = {
       loggedIn: false,
-      username: null,
-      password: null,
+      username: "",
+      password: "",
       id: null,
       userType: false
     };
@@ -36,6 +36,7 @@ class App extends Component {
   updateUser(userObject) {
     this.setState(userObject);
   }
+  
   getUser() {
     axios.get("/user/").then(response => {
       console.log("Get user response: ");
@@ -56,10 +57,10 @@ class App extends Component {
         console.log("Get user: no user");
         this.setState({
           loggedIn: false,
-          username: null
-          // password: null,
-          // id: null,
-          // teacher: false
+          username: "",
+          password: "",
+          id: null,
+          teacher: false
         });
       }
     });
@@ -71,9 +72,11 @@ class App extends Component {
         {/* <p>Hello {this.state.username}!</p> */}
         <Router>
           <div>
-            <Route exact path="/" component={LoginBox} />
-            <Route exact path="/parent" component={ParentHome} />
-            <Route exact path="/teacher" component={TeacherHome} />
+            <Switch>
+              <Route exact path="/" component={LoginBox} />
+              <Route exact path="/parent" component={ParentHome} />
+              <Route exact path="/teacher" component={TeacherHome} />
+            </Switch>
           </div>
         </Router>
       </div>
