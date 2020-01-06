@@ -46,7 +46,7 @@ class TeacherHome extends Component {
 
                     <h1>Pencil-In</h1>
                     <TeacherTable>
-                    <p>Hello {this.state.username}!</p>
+                    {/* <p>Hello {this.state.username}!</p> */}
                         {/* Display all students tied to this teacher */}
                         {this.state.students.map((student) => (
                             <StudentList

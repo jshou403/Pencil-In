@@ -41,13 +41,15 @@ router.post(
 function(req, res) {
         console.log("logged in", req.user);
         var userInfo = {
-        username: req.user.username
+        username: req.user.username,
+        firstName: req.user.firstname,
+        lastName: req.user.lastname,
+        userType: req.user.teacher
         };
         res.send(userInfo);
         console.log(userInfo);
     }
 );
-
 
 router.get("/", (req, res, next) => {
   console.log("===== user!!======");
