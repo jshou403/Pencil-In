@@ -18,14 +18,14 @@ class Nav extends Component {
         {
           user: response.data.user
         },
-        () => this.tester()
+        // () => this.tester()
       )
     );
   }
 
-  tester() {
-    console.log(this.state.user);
-  }
+  // tester() {
+  //   console.log(this.state.user);
+  // }
 
   userInfo() {
     return axios.get("/user/");
@@ -35,7 +35,7 @@ class Nav extends Component {
     event.preventDefault();
     console.log("logging out");
     axios
-      .post("/user/logout")
+      .get("/user/logout")
       .then(response => {
         console.log(response.data);
         this.setState({ redirect: true });
@@ -54,8 +54,8 @@ class Nav extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+        {this.renderRedirect()}
         <a className="navbar-brand text-warning" href="#">
-          {/* *UserNameHere* */}
           Current user: {this.state.user.username}
         </a>
         <button
@@ -74,18 +74,15 @@ class Nav extends Component {
             <a className="nav-item nav-link active" href="#">
               Current Link<span className="sr-only">(current)</span>
             </a>
-            {/* <a className="nav-item nav-link" href="/parent"> */}
             <Link className="nav-item nav-link" to="/parent">
               Parent Home
             </Link>
-            {/* </a> */}
-            <a className="nav-item nav-link" href="/teacher">
+            <Link className="nav-item nav-link" to="/teacher">
               Teacher Home
-            </a>
-            <a className="nav-item nav-link" href="/logout">
+            </Link>
+            <Link className="nav-item nav-link" to="/" onClick={this.logout}>
               Log Out
-            </a>
-            {/* <a className="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> */}
+            </Link>
           </div>
         </div>
       </nav>

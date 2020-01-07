@@ -3,7 +3,6 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes");
 const user = require("./routes/users")
-// const mongoose = require("mongoose");
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
@@ -11,7 +10,7 @@ const passport = require('./routes/passport');
 const dbConnection = require('./client/dbConnection') 
 const app = express();
 
-// Define middleware here
+// Define middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -42,18 +41,15 @@ app.use(passport.initialize())
 app.use(passport.session()) // calls serializeUser and deserializeUser
 
 // Define API routes here
-app.use("/user", user);
+// app.use("/user", user);
 // app.use("/api", routes);
 app.use(routes);
-
-// Connect to the Mongo DB and creates DB which will not show data until data is created
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/classroom", { useNewUrlParser: true , useUnifiedTopology: true });
 
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
   // res.sendFile(path.join(__dirname, "./client/build/index.html"));
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 app.listen(PORT, () => {
