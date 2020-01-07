@@ -1,68 +1,71 @@
 import React, { Component } from 'react';
-import Button from "./Button";
-
+import Button from './Button';
 
 class StudentAttendance extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			selectedOption: "absent"
+			selectedOption: 'absent'
 		};
 	}
 
-	handleOptionChange = changeEvent => {
+	handleOptionChange = (changeEvent) => {
 		this.setState({
 			selectedOption: changeEvent.target.value
 		});
-	}
+	};
 
-	handleFormSubmit = formSubmitEvent => {
+	handleFormSubmit = (formSubmitEvent) => {
 		formSubmitEvent.preventDefault();
-
-		console.log("You have submitted:", this.state.selectedOption)
+		console.log('You have submitted:', this.state.selectedOption);
 	};
 
 	render() {
 		return (
-			<div className="container">
-				<div className="row">
-					<div className="col-sm-12">
-						<form onSubmit={this.handleFormSubmit} className="d-flex justify-content-end">
-							<div className="form-check">
-								<label className="d-flex justify-content-end">
-									<input type="radio" name="react-tips" value="absent" checked={this.state.selectedOption === "absent"} onChange={this.handleOptionChange} className="form-check-input" />
-								</label>
+			<div className="col">
+				<form onSubmit={this.handleFormSubmit}>
+					<div className="row">
+						<div className="col-sm-3">
+							<label>
+								<input
+									type="radio"
+									value="absent"
+									checked={this.state.selectedOption === 'absent'}
+									onChange={this.handleOptionChange}
+								/>
 								Absent
-							</div>
-							<div className="form-check">
-								<label className="d-flex justify-content-end ">
-									<input type="radio" name="react-tips" value="excused" checked={this.state.selectedOption === "excused"} onChange={this.handleOptionChange}className="form-check-input" />
-									{/* Excused */}
-								</label>
+						</label>
+						</div>
+						<div className="col-sm-3">
+							<label>
+								<input
+									type="radio"
+									value="excused"
+									checked={this.state.selectedOption === 'excused'}
+									onChange={this.handleOptionChange}
+								/>
 								Excused
-							</div>
-							<div className="form-check">
-								<label className="d-flex justify-content-end">
-									<input type="radio" name="react-tips" value="present" checked={this.state.selectedOption === "present"} onChange={this.handleOptionChange}className="form-check-input" />
-									{/* Present */}
-								</label>
+						</label>
+						</div>
+						<div className="col-sm-3">
+							<label>
+								<input
+									type="radio"
+									value="present"
+									checked={this.state.selectedOption === 'present'}
+									onChange={this.handleOptionChange}
+								/>
 								Present
-							</div>
-							<div className="form-group">
-            					<Button onSubmit={this.handleFormSubmit}></Button>
-            				</div>
-						</form>
+						</label>
+						</div>
+						<div className="col-sm-3">
+							<Button onSubmit={this.handleFormSubmit} />
+						</div>
 					</div>
-				</div>
+				</form>
 			</div>
-			
-
-		)
+		);
 	}
 }
-
-
-
-
 
 export default StudentAttendance;
