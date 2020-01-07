@@ -20,6 +20,6 @@ router.get("/", function (req, res) {
     .find(req.query)
     .then(dbStudent => res.json(dbStudent))
     .catch(err => res.status(422).json(err));
-})
+});
 
 module.exports = router; 
