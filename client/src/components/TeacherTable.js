@@ -42,7 +42,7 @@ class TeacherTable extends Component {
   render() {
     return (
       <div className="card">
-        <h1>Welcome {this.state.user.username}!</h1>
+        <h1>{this.state.user.firstname} {this.state.user.lastname}'s Classroom</h1>
         {/* <h1>Ms.Frizzle's Class--teacher's ID from DB here</h1> */}
         <ul className="list-group-item m-2">{this.props.children}</ul>
         {/* <ul className="list-group-item m-2">{this.state.student}</ul> */}

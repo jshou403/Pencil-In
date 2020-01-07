@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const passport = require("./passport");
+const usersController = require("../controllers/usersController")
 
 //FOR CREATING NEW USERS
 router.post("/", (req, res) => {
@@ -51,15 +52,19 @@ function(req, res) {
     }
 );
 
-router.get("/", (req, res, next) => {
-  console.log("===== user!!======");
-  if (req.user) {
-    console.log(req.user);
-    res.json({ user: req.user });
-  } else {
-    res.json({ user: null });
-  }
-});
+// router.get("/", (req, res, next) => {
+//   console.log("===== user!!======");
+//   if (req.user) {
+//     console.log(req.user);
+//     res.json({ user: req.user });
+//   } else {
+//     res.json({ user: null });
+//   }
+// });
+
+router.route("/").get(usersController.findUser)
+
+
 
 router.post("/logout", (req, res) => {
   if (req.user) {

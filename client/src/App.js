@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
   // Link,
-  // Redirect,
+  Redirect
   // withRouter
 } from "react-router-dom";
 // import LogInPage from './pages/LogIn';
@@ -36,16 +36,26 @@ class App extends Component {
   updateUser(userObject) {
     this.setState(userObject);
   }
-  
+
+  // redirectTeacher() {
+  //   this.render(<Redirect to="/teacher" />);
+  // }
+
+  // redirectParent() {
+  //   this.render(<Redirect to="/parent" />);
+  // }
+
   getUser() {
     axios.get("/user/").then(response => {
       console.log("Get user response: ");
       console.log(response.data);
-      if (response.data.user) {
-        console.log("Get User: There is a user saved in the server session: ");
+      console.log(response.data.user.teacher);
 
+      if (response.data.user && response.data.user.teacher) {
+        console.log("You are logged in as a TEACHER!");
+        // this.redirectTeacher();
+        // console.log("Get User: There is a user saved in the server session: ");
         console.log(response.data.user);
-
         this.setState({
           loggedIn: true,
           username: response.data.user.username,
@@ -53,23 +63,23 @@ class App extends Component {
           id: response.data.user._id,
           userType: response.data.user.teacher
         });
+      } else if (response.data.user && !response.data.user.teacher) {
+        console.log("You are logged in as a PARENT!");
       } else {
         console.log("Get user: no user");
         this.setState({
           loggedIn: false,
-          username: "",
-          password: "",
-          id: null,
-          teacher: false
+          username: null
         });
       }
     });
   }
 
+  // <Route path="/signin" render={()=> (<Redirect to='/search'/>)}/>
+
   render() {
     return (
       <div>
-        {/* <p>Hello {this.state.username}!</p> */}
         <Router>
           <div>
             <Switch>
