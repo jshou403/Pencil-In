@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 // import { BrowserRouter as Redirect } from "react-router-dom";
 import axios from "axios";
-import API from "../utils/API";
-// import StudentList from "./StudentList"
 
 class TeacherTable extends Component {
   constructor(props) {
@@ -23,18 +21,6 @@ class TeacherTable extends Component {
     );
   }
 
-//   componentDidMount() {
-//     this.userInfo();
-//   }
-
-//   userInfo = () => {
-//       API.getUsers()
-//       .then(res => {
-//           this.setState({ user: res.data.user})
-//       })
-//     // return axios.get("/user/");
-//   }
-
   userInfo = () => {
   return axios.get("/user/");
 }
@@ -52,14 +38,3 @@ class TeacherTable extends Component {
 }
 
 export default TeacherTable;
-
-// function TeacherTable(props) {
-//     return (
-//         <div className="card">
-//             <h1>Ms.Frizzle's Class--teacher's ID from DB here</h1>
-//                 <ul className="list-group-item m-2">
-//                     {props.children}
-//                 </ul>
-//         </div>
-//     )
-// }
