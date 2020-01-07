@@ -8,7 +8,7 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./routes/passport');
-const dbConnection = require('./client/dbconnection') 
+const dbConnection = require('./client/dbConnection') 
 const app = express();
 
 // Define middleware here
