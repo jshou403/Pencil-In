@@ -4,10 +4,9 @@ import {
   Route,
   Switch,
   // Link,
-  Redirect
+  // Redirect
   // withRouter
 } from "react-router-dom";
-// import LogInPage from './pages/LogIn';
 import "./utils/sketchy-bootswatch.css";
 import LoginBox from "./components/LoginBox";
 import ParentHome from "./pages/ParentHome";
@@ -19,11 +18,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      user: {},
       loggedIn: false,
       username: "",
       password: "",
       id: null,
-      userType: false
+      userType: null
     };
 
     this.getUser = this.getUser.bind(this);
@@ -31,20 +31,12 @@ class App extends Component {
     this.updateUser = this.updateUser.bind(this);
   }
   componentDidMount() {
-    this.getUser();
+    this.getUser()
   }
 
   updateUser(userObject) {
     this.setState(userObject);
   }
-
-  // redirectTeacher() {
-  //   this.render(<Redirect to="/teacher" />);
-  // }
-
-  // redirectParent() {
-  //   this.render(<Redirect to="/parent" />);
-  // }
 
   getUser() {
     axios.get("/user/").then(response => {
@@ -54,29 +46,32 @@ class App extends Component {
 
       if (response.data.user && response.data.user.teacher) {
         console.log("You are logged in as a TEACHER!");
-        // this.redirectTeacher();
-        // console.log("Get User: There is a user saved in the server session: ");
         console.log(response.data.user);
         this.setState({
           loggedIn: true,
           username: response.data.user.username,
           password: response.data.user.password,
           id: response.data.user._id,
-          userType: response.data.user.teacher
+          userType: true
         });
       } else if (response.data.user && !response.data.user.teacher) {
+        this.setState({
+          loggedIn: true,
+          username: response.data.user.username,
+          password: response.data.user.password,
+          id: response.data.user._id,
+          userType: false
+        });
         console.log("You are logged in as a PARENT!");
       } else {
         console.log("Get user: no user");
         this.setState({
           loggedIn: false,
-          username: null
+          username: null, 
         });
       }
     });
   }
-
-  // <Route path="/signin" render={()=> (<Redirect to='/search'/>)}/>
 
   render() {
     return (
@@ -84,7 +79,8 @@ class App extends Component {
         <Router>
           <div>
             <Switch>
-              <Route exact path="/" component={LoginBox} />
+              <Route exact path="/"
+              render={() => <LoginBox updateUser={this.updateUser} userType={this.state.userType}/>}/>
               <Route exact path="/parent" component={ParentHome} />
               <Route exact path="/teacher" component={TeacherHome} />
               <Route component={NoMatch} />

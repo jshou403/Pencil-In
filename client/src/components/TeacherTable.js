@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import API from "../utils/API";
 
-
 class TeacherTable extends Component {
   constructor(props) {
     super(props);
@@ -22,18 +21,6 @@ class TeacherTable extends Component {
     );
   }
 
-//   componentDidMount() {
-//     this.userInfo();
-//   }
-
-//   userInfo = () => {
-//       API.getUsers()
-//       .then(res => {
-//           this.setState({ user: res.data.user})
-//       })
-//     // return axios.get("/user/");
-//   }
-
   userInfo = () => {
   return axios.get("/user/");
 }
@@ -49,4 +36,3 @@ class TeacherTable extends Component {
 }
 
 export default TeacherTable;
-

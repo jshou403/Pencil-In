@@ -4,7 +4,7 @@ import {
   // Route,
   // Switch,
   // Link,
-  Redirect,
+  Redirect
   // withRouter
 } from "react-router-dom";
 import axios from "axios";
@@ -25,17 +25,19 @@ class LoginBox extends Component {
     this.updateUser = this.updateUser.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({ redirectTo: null });
+  }
   updateUser(userObject) {
     this.setState(userObject);
   }
 
   handleChange(event) {
     this.setState({
-      //HERE?
       [event.target.name]: event.target.value
     });
-    console.log(this.state.username);
-    console.log(this.state.password);
+    // console.log(this.state.username);
+    // console.log(this.state.password);
   }
 
   handleSubmit(event) {
@@ -45,25 +47,38 @@ class LoginBox extends Component {
     axios
       .post("/user/login", {
         username: this.state.username,
-        password: this.state.password,
-        userType: this.state.teacher
+        password: this.state.password
+        // userType: this.state.teacher
       })
       .then(response => {
-        // console.log("login response: ");
-        // console.log(response);
-
+        console.log("login response: ");
+        console.log(response);
         if (response.status === 200) {
+
+          this.setState({
+            userType: response.data.userType
+          })
+
           // update App.js state
-  
+          console.log("working");
+          console.log("This is the props userType: " + this.state.userType);
           this.props.updateUser({
             loggedIn: true,
             username: response.data.username,
-            password: response.data.password
+            password: response.data.password,
+            userType: response.data.userType
           });
-          // update the state to redirect to home
-          this.setState({
-            redirectTo: "/"
-          });
+
+          if (this.state.userType === true) {
+            this.setState({
+              redirectTo: "/teacher"
+            });
+          } else {
+     
+            this.setState({
+              redirectTo: "/parent"
+            });
+          }
         }
       })
       .catch(error => {
@@ -71,19 +86,6 @@ class LoginBox extends Component {
         console.log(error);
       });
   }
-
-  // handleRedirect() {
-  //   console.log("redirecting to teacher/parent page")
-  //           (<Redirect to='/parent'/>)
-  // }
-
-  // redirectTeacher() {
-  //   this.render(<Redirect to="/teacher" />);
-  // }
-
-  // redirectParent() {
-  //   this.render(<Redirect to="/parent" />);
-  // }
 
   render() {
     if (this.state.redirectTo) {
@@ -119,7 +121,7 @@ class LoginBox extends Component {
             />
           </div>
           <button
-            // location={props.location}
+
             onClick={this.handleSubmit}
             type="submit"
           >
@@ -132,32 +134,3 @@ class LoginBox extends Component {
 }
 
 export default LoginBox;
-
-// function LoginBox(props) {
-//   return (
-//     <div className="container ">
-//         <p>Please log in to continue</p>
-//       <div className="form-group">
-//         <label >Username</label>
-//         <input
-//           type="text"
-//           className="form-control"
-//           onChange={props.onChange}
-//           id="user-input"
-//           placeholder=""
-
-//         />
-//          <label>Password</label>
-//         <input
-//           type="text"
-//           className="form-control"
-//           onChange={props.onChange}
-//           id="password-input"
-//           placeholder=""
-//         />
-//       </div>
-//       <button location={props.location}
-//       onClick={props.onClick}>Log in</button>
-//     </div>
-//   );
-// }
