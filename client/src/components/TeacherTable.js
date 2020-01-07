@@ -36,7 +36,3 @@ class TeacherTable extends Component {
 }
 
 export default TeacherTable;
-<<<<<<< HEAD
-=======
-
->>>>>>> 39be36dd45608d98ab8b6a6c9d57e4adc3e00329
