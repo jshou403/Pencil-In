@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
-// const uri = (process.env.MONGODB_URI || "mongodb://localhost/classroom")
+const uri = (process.env.MONGODB_URI || "mongodb://localhost/classroom")
 
-const uri = (process.env.MONGODB_URI || "mongodb://pencil-in-admin:bestadmin1@ds359868.mlab.com:59868/heroku_vn8cpk86")
+// const uri = (process.env.MONGODB_URI || "mongodb://pencil-in-admin:bestadmin1@ds359868.mlab.com:59868/heroku_vn8cpk86")
 
 // { useNewUrlParser: true , useUnifiedTopology: true }
 
