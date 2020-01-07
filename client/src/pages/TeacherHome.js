@@ -5,6 +5,8 @@ import Calendar from 'short-react-calendar';
 import TeacherTable from '../components/TeacherTable';
 import StudentList from '../components/StudentList';
 import API from '../utils/API';
+import StudentAttendance from '../components/StudentAttendance';
+import Button from "../components/Button"
 
 class TeacherHome extends Component {
     state = {
@@ -43,10 +45,8 @@ class TeacherHome extends Component {
                         calendarType="US"
                         oneWeekCalendar={true}
                     />
-
-                    <h1>Pencil-In</h1>
                     <TeacherTable>
-                        {/* Display all students tied to this teacher */}
+                        {/* Display all students tied to this teacher  */}
                         {this.state.students.map((student) => (
                             <StudentList
                                 // onClick={() => this.whenClicked(student._id)}
@@ -56,6 +56,7 @@ class TeacherHome extends Component {
                                 lastName={student.lastname}
                             />
                         ))}
+                        <StudentAttendance />
                     </TeacherTable>
                 </Wrapper>
             </div>

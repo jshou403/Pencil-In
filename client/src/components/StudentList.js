@@ -1,10 +1,11 @@
 import React from "react"
-import AttendanceBtns from "./AttendanceBtns"
+import StudentAttendance from "./StudentAttendance"
+
 
 //pass in student prop from teacherhome.js
 function StudentList(student) {
     return (
-        <li className="d-flex justify-content-between"><div>{student.firstName} {student.lastName}</div><AttendanceBtns /></li>
+        <li className="d-flex justify-content-start"><div>{student.firstName} {student.lastName}</div><StudentAttendance /></li>
     )
 }
 export default StudentList;
