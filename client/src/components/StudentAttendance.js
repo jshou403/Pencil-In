@@ -18,6 +18,7 @@ class StudentAttendance extends Component {
 	handleFormSubmit = (formSubmitEvent) => {
 		formSubmitEvent.preventDefault();
 		console.log('You have submitted:', this.state.selectedOption);
+	    
 	};
 
 	render() {

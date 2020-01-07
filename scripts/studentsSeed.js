@@ -15,7 +15,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "5e0921ab4065f5410c3b7678",
         parent: "5e0921ab4065f5410c3b767d",
-        present: false
+        present: ""
     },
     {
         firstname: "Carlos",
@@ -25,7 +25,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "5e0921ab4065f5410c3b7678",
         // parent: ,
-        present: false
+        present: ""
     },
     {
         firstname: "Dorothy",
@@ -35,7 +35,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "5e0921ab4065f5410c3b7678",
         // parent: ,
-        present: false
+        present: ""
     },
     {
         firstname: "Jyoti",
@@ -45,7 +45,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "5e0921ab4065f5410c3b7678",
         parent: "5e0921ab4065f5410c3b767c",
-        present: false
+        present: ""
     },
     {
         firstname: "Keesha",
@@ -55,7 +55,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "5e0921ab4065f5410c3b7678",
         parent: "5e0921ab4065f5410c3b767c",
-        present: false
+        present: ""
     },
     {
         firstname: "Phoebe",
@@ -65,7 +65,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "5e0921ab4065f5410c3b7678",
         // parent: ,
-        present: false
+        present: ""
     },
     {
         firstname: "Ralph",
@@ -75,7 +75,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "5e0921ab4065f5410c3b7678",
         // parent: ,
-        present: false
+        present: ""
     },
     {
         firstname: "Timothy",
@@ -85,7 +85,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "5e0921ab4065f5410c3b7678",
         // parent: ,
-        present: false
+        present: ""
     },
     {
         firstname: "Wanda",
@@ -95,7 +95,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "5e0921ab4065f5410c3b7678",
         parent: "5e0921ab4065f5410c3b767b",
-        present: false
+        present: ""
     }
 ]
 

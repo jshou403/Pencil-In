@@ -21,6 +21,7 @@ class TeacherHome extends Component {
         this.loadStudents();
     }
 
+    //need to load specific students for specified teacher
     loadStudents = () => {
         console.log("TEACHER HOME LOADED\nGetting students... ");
         API.getStudents()
@@ -28,9 +29,12 @@ class TeacherHome extends Component {
                 console.log("--- Students Response Start ---")
                 console.log(JSON.stringify(res.data))
                 console.log("--- End Students Response ---")
-                this.setState({
-                    students: res.data
-                })
+                //if statement to get user ID
+                    this.setState({
+                        students: res.data
+                    })
+
+
             })
             .catch((err) => console.log(err));
     };
