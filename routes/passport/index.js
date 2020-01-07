@@ -10,7 +10,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((id, done) => {
   User.findOne({ _id: id }, "username", (err, user) => {
     console.log(user);
-    console.log("Deserealized")
+    console.log("Deserialized")
     done(null, user);
   });
 });

@@ -4,7 +4,7 @@ import {
   Route,
   Switch,
   // Link,
-  // Redirect,
+  Redirect
   // withRouter
 } from "react-router-dom";
 // import LogInPage from './pages/LogIn';
@@ -20,8 +20,8 @@ class App extends Component {
     super();
     this.state = {
       loggedIn: false,
-      username: null,
-      password: null,
+      username: "",
+      password: "",
       id: null,
       userType: false
     };
@@ -37,14 +37,26 @@ class App extends Component {
   updateUser(userObject) {
     this.setState(userObject);
   }
+
+  // redirectTeacher() {
+  //   this.render(<Redirect to="/teacher" />);
+  // }
+
+  // redirectParent() {
+  //   this.render(<Redirect to="/parent" />);
+  // }
+
   getUser() {
     axios.get("/user/").then(response => {
-      console.log("Getting user...");
+      console.log("Get user response: ");
+      console.log(response.data);
+      console.log(response.data.user.teacher);
 
-      if (response.data.user) {
-        console.log("User already in session: " + response.data.user.username);
-        // console.log(response.data.user.username);
-
+      if (response.data.user && response.data.user.teacher) {
+        console.log("You are logged in as a TEACHER!");
+        // this.redirectTeacher();
+        // console.log("Get User: There is a user saved in the server session: ");
+        console.log(response.data.user);
         this.setState({
           loggedIn: true,
           username: response.data.user.username,
@@ -52,23 +64,23 @@ class App extends Component {
           id: response.data.user._id,
           userType: response.data.user.teacher
         });
+      } else if (response.data.user && !response.data.user.teacher) {
+        console.log("You are logged in as a PARENT!");
       } else {
         console.log("Get user: no user");
         this.setState({
           loggedIn: false,
           username: null
-          // password: null,
-          // id: null,
-          // teacher: false
         });
       }
     });
   }
 
+  // <Route path="/signin" render={()=> (<Redirect to='/search'/>)}/>
+
   render() {
     return (
       <div>
-        {/* <p>Hello {this.state.username}!</p> */}
         <Router>
           <div>
             <Switch>

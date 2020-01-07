@@ -10,23 +10,24 @@ import {
 import axios from "axios";
 
 class LoginBox extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       loggedIn: false,
       username: "",
       password: "",
       id: "",
+      userType: "",
       redirectTo: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // this.updateUser = this.updateUser.bind(this);
+    this.updateUser = this.updateUser.bind(this);
   }
 
-  // updateUser(userObject) {
-  //   this.setState(userObject);
-  // }
+  updateUser(userObject) {
+    this.setState(userObject);
+  }
 
   handleChange(event) {
     this.setState({
@@ -44,18 +45,16 @@ class LoginBox extends Component {
     axios
       .post("/user/login", {
         username: this.state.username,
-        password: this.state.password
+        password: this.state.password,
+        userType: this.state.teacher
       })
       .then(response => {
-        console.log("login response: ");
-        console.log(response);
+        // console.log("login response: ");
+        // console.log(response);
 
-        if (response.status === 200 ) {
+        if (response.status === 200) {
           // update App.js state
-
-          //THIS FUNCTION WAS CAUSING AN ERROR SO I REMOVED PROPS AND IT SEEMS TO WORK?
-          
-          // this.props.updateUser({
+  
           this.props.updateUser({
             loggedIn: true,
             username: response.data.username,
@@ -72,6 +71,19 @@ class LoginBox extends Component {
         console.log(error);
       });
   }
+
+  // handleRedirect() {
+  //   console.log("redirecting to teacher/parent page")
+  //           (<Redirect to='/parent'/>)
+  // }
+
+  // redirectTeacher() {
+  //   this.render(<Redirect to="/teacher" />);
+  // }
+
+  // redirectParent() {
+  //   this.render(<Redirect to="/parent" />);
+  // }
 
   render() {
     if (this.state.redirectTo) {

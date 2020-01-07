@@ -9,7 +9,9 @@ import API from '../utils/API';
 class TeacherHome extends Component {
     state = {
         date: new Date(),
-        students: []
+        students: [],
+        username: ''
+
     };
 
     onChange = (date) => this.setState({ date });
@@ -46,6 +48,7 @@ class TeacherHome extends Component {
 
                     <h1>Pencil-In</h1>
                     <TeacherTable>
+                    {/* <p>Hello {this.state.username}!</p> */}
                         {/* Display all students tied to this teacher */}
                         {this.state.students.map((student) => (
                             <StudentList

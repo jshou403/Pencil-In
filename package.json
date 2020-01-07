@@ -11,7 +11,7 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build  && npm run seed",
+    "heroku-postbuild": "npm run build && npm run seed",
     "seed": "node scripts/studentsSeed.js && node scripts/usersSeed.js"
   },
   "author": "",
