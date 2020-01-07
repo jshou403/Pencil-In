@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-// import { BrowserRouter as Redirect } from "react-router-dom";
 import axios from "axios";
+<<<<<<< HEAD
+=======
+import API from "../utils/API";
+
+>>>>>>> 39be36dd45608d98ab8b6a6c9d57e4adc3e00329
 
 class TeacherTable extends Component {
   constructor(props) {
@@ -27,14 +31,16 @@ class TeacherTable extends Component {
 
   render() {
     return (
-      <div className="card">
-        <h1>{this.state.user.firstname} {this.state.user.lastname}'s Classroom</h1>
-        {/* <h1>Ms.Frizzle's Class--teacher's ID from DB here</h1> */}
-        <ul className="list-group-item m-2">{this.props.children}</ul>
-        {/* <ul className="list-group-item m-2">{this.state.student}</ul> */}
-      </div>
+        <div className="card">
+          <h1>{this.state.user.firstname} {this.state.user.lastname}'s Classroom</h1>
+          <div>{this.props.children} </div>    
+        </div>
     );
   }
 }
 
 export default TeacherTable;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 39be36dd45608d98ab8b6a6c9d57e4adc3e00329

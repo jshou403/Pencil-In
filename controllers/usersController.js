@@ -8,7 +8,6 @@ module.exports = {
       .then(dbModel =>
         res.json({
           user: dbModel,
-          // CHECK THIS 
           userId: dbModel._id
         })
       )
