@@ -15,6 +15,8 @@ class StudentAttendance extends Component {
 		});
 	};
 
+
+	//need to add API put to get students from DB
 	handleFormSubmit = (formSubmitEvent) => {
 		formSubmitEvent.preventDefault();
 		console.log('You have submitted:', this.state.selectedOption);
@@ -25,7 +27,7 @@ class StudentAttendance extends Component {
 		return (
 			<div className="col">
 				<form onSubmit={this.handleFormSubmit}>
-					<div className="row">
+					<div className="row mt-3">
 						<div className="col-sm-3">
 							<label>
 								<input

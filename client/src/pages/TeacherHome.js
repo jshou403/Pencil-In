@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Wrapper from '../components/Wrapper';
 import Nav from '../components/Nav';
-import Calendar from 'short-react-calendar';
+// import Calendar from 'short-react-calendar';
+import { SingleCalendar, ColoredCalendar } from "colored-calendar";
 import TeacherTable from '../components/TeacherTable';
 import StudentList from '../components/StudentList';
 import API from '../utils/API';
 import StudentAttendance from '../components/StudentAttendance';
+import Footer from "../components/Footer";
+
 
 class TeacherHome extends Component {
     state = {
@@ -44,12 +47,14 @@ class TeacherHome extends Component {
             <div>
                 <Nav />
                 <Wrapper>
-                    <Calendar
+                    {/* <Calendar
                         // onChange={this.onChange}
                         // value={value}
                         calendarType="US"
                         oneWeekCalendar={true}
-                    />
+                    /> */}
+                    {/* <ColoredCalendar /> */}
+                 {/* <SingleCalendar /> */}
                     <TeacherTable>
                     {/* <p>Hello {this.state.username}!</p> */}
                         {/* Display all students tied to this teacher */}
@@ -64,7 +69,9 @@ class TeacherHome extends Component {
                             </StudentList>
                         ))}
                     </TeacherTable>
+                  
                 </Wrapper>
+                <Footer />
             </div>
         );
     }

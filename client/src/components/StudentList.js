@@ -6,7 +6,7 @@ import StudentAttendance from "./StudentAttendance"
 function StudentList(student) {
     return (
         <div className="row">
-             <div className="col">{student.firstName} {student.lastName}</div>
+             <div className="col px-md-5 mt-3">{student.firstName} {student.lastName}</div>
              <StudentAttendance />
         </div>
     )
