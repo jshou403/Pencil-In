@@ -22,16 +22,13 @@ const StudentSchema = new Schema ({
         type: Number,
         required: true
     },
-    // teacher is an object that stores the teacher ID
-    // the ref property links the ObjectID to the User model
-    // unit 18, activity 20
     teacher: {
-        type: Schema.Types.ObjectId, 
-        ref: "User"
+        type: String, 
+        required: true
     },
     parent: {
-        type: Schema.Types.ObjectId, 
-        ref: "User"
+        type: String, 
+        required: true
     },
     present: {
         type: String

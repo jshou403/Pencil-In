@@ -18,14 +18,9 @@ class Nav extends Component {
         {
           user: response.data.user
         },
-        // () => this.tester()
       )
     );
   }
-
-  // tester() {
-  //   console.log(this.state.user);
-  // }
 
   userInfo() {
     return axios.get("/user/");

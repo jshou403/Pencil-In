@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
+const Student = require("../models/Student");
 const passport = require("./passport");
 const usersController = require("../controllers/usersController");
 
@@ -30,6 +31,8 @@ router.post("/", (req, res) => {
   });
 });
 
+router.route("/").get(usersController.findUser);
+
 // FOR LOGGING IN AS AN EXISTING USER
 router.post(
   "/login",
@@ -52,7 +55,36 @@ router.post(
   }
 );
 
-router.route("/").get(usersController.findUser);
+// ROUTE FOR GETTING ALL STUDENTS ASSOCIATED WITH A SPECIFIC PARENT/TEACHER
+router.get("/user/:id", function(req, res) {
+  User.findOne({ _id: req.params.id })
+    .then(function(dbUser) {
+      let userType;
+      if (dbUser.teacher) {
+        userType = "teacher";
+      } else {
+        userType = "parent";
+      };
+      console.log(userType, dbUser.username);
+      Student.find({[userType]: dbUser.username})
+        .then(function(dbStudents) {
+          console.log(dbStudents);
+          let populatedUser = {
+            username: dbUser.username,
+            teacher: dbUser.teacher,
+            firstname: dbUser.firstname,
+            lastname: dbUser.lastname,
+            students: dbStudents
+        };
+          populatedUser.students = dbStudents;
+          res.json(populatedUser);
+        })
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
 
 router.get("/logout", (req, res) => {
   console.log("logout");
@@ -70,3 +102,5 @@ router.get("/logout", (req, res) => {
 });
 
 module.exports = router;
+
+

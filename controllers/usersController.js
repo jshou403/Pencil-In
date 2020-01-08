@@ -1,7 +1,7 @@
 const db = require("../models");
 
 module.exports = {
-  // lsit of functions that will be exported when we require our book model to perform crud operations
+  // list of functions that will be exported when we require our user model to perform crud operations
 
   findUser: function(req, res) {
     db.User.findOne({ _id: req.user._id })
@@ -13,6 +13,7 @@ module.exports = {
       )
       .catch(err => res.json(err));
   }
+  
 };
 
   // findAll: function(req, res) {
