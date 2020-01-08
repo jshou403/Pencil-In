@@ -31,12 +31,10 @@ const StudentSchema = new Schema ({
         required: true
     },
     present: {
-        type: Boolean,
-        default: false
+        type: String
     }
 });
 
 const Student = mongoose.model("Student", StudentSchema);
 
 module.exports = Student;
-

@@ -6,5 +6,6 @@ export default {
     },
     getUsers: function(){
         return axios.get("/api/users");
-    }
+    },
+    
 }

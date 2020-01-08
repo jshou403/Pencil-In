@@ -25,7 +25,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "mz-frizz-1",
         // parent: ,
-        present: false
+        present: ""
     },
     {
         firstname: "Dorothy",
@@ -35,7 +35,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "mz-frizz-1",
         // parent: ,
-        present: false
+        present: ""
     },
     {
         firstname: "Jyoti",
@@ -66,7 +66,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "mz-frizz-1",
         // parent: ,
-        present: false
+        present: ""
     },
     {
         firstname: "Ralph",
@@ -76,7 +76,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "mz-frizz-1",
         // parent: ,
-        present: false
+        present: ""
     },
     {
         firstname: "Timothy",
@@ -86,7 +86,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "mz-frizz-1",
         // parent: ,
-        present: false
+        present: ""
     },
     {
         firstname: "Wanda",
