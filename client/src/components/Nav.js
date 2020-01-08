@@ -18,14 +18,9 @@ class Nav extends Component {
         {
           user: response.data.user
         },
-        // () => this.tester()
       )
     );
   }
-
-  // tester() {
-  //   console.log(this.state.user);
-  // }
 
   userInfo() {
     return axios.get("/user/");
@@ -53,9 +48,9 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav className="navbar d-flex align-content-end navbar-expand navbar-dark bg-success">
+      <nav className="navbar navbar-expand-md navbar-dark bg-success">
         {this.renderRedirect()}
-        <a className="navbar-brand text-light d-flex justify-content-end" href="#">
+        <a className="navbar-brand text-light" href="#">
           Welcome, {this.state.user.username}
         </a>
         <button

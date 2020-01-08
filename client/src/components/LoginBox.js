@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import {
   BrowserRouter as Router,
+  Redirect
   // Route,
   // Switch,
   // Link,
-  Redirect
   // withRouter
 } from "react-router-dom";
 import axios from "axios";
@@ -54,10 +54,9 @@ class LoginBox extends Component {
         console.log("login response: ");
         console.log(response);
         if (response.status === 200) {
-
           this.setState({
             userType: response.data.userType
-          })
+          });
 
           // update App.js state
           console.log("working");
@@ -74,7 +73,6 @@ class LoginBox extends Component {
               redirectTo: "/teacher"
             });
           } else {
-     
             this.setState({
               redirectTo: "/parent"
             });
@@ -120,11 +118,7 @@ class LoginBox extends Component {
               placeholder="Password"
             />
           </div>
-          <button
-
-            onClick={this.handleSubmit}
-            type="submit"
-          >
+          <button onClick={this.handleSubmit} type="submit">
             Log in
           </button>
         </div>
