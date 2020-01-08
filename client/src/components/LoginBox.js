@@ -8,6 +8,7 @@ import {
   // withRouter
 } from "react-router-dom";
 import axios from "axios";
+// import Footer from "./Footer";
 
 class LoginBox extends Component {
   constructor(props) {
@@ -90,38 +91,143 @@ class LoginBox extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-        <div>
-          <p>Please log in to continue</p>
-          <div className="form-group">
-            <label className="form-label" htmlFor="username">
-              Username
-            </label>
-            <input
-              className="form-input"
-              type="text"
-              id="username"
-              name="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-              placeholder="Username"
-            />
-            <label className="form-label" htmlFor="password">
-              Password
-            </label>
-            <input
-              className="form-input"
-              type="password"
-              id="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              placeholder="Password"
-            />
+
+
+        <div className="mt-3">
+
+          <div className="row">
+
+            <div className="col"></div>
+
+            <div className="col-8">
+              <div className="jumbotron">
+
+                <div className="row">
+
+                  <div className="col-4">
+                    <img className="img-fluid" src={require("../utils/images/square-logo-text.png")} />
+                  </div>
+
+                  <div className="col-8">
+                    <div>
+                      <h1 className="display-3">Walkerville Elementry School</h1>
+
+                      <h3>Student Attendance Tracker</h3>
+
+                      <p className="lead">Please log in to continue.</p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <hr className="my-4" />
+
+                <div className="row">
+
+                  {/* input fields go here */}
+                  {/* <p>It uses utility class for typography and spacing to space content out within the larger container.</p> */}
+
+                  <div className="col"></div>
+
+                  <div className="col-sm-10">
+                    {/* <p className="lead"> */}
+
+                    {/* log in button goes here */}
+
+                    <form>
+
+                      <div className="form-group">
+
+                        <label className="form-label" htmlFor="username">
+                          Username
+                  </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          id="username"
+                          name="username"
+                          value={this.state.username}
+                          onChange={this.handleChange}
+                          placeholder="Username"
+                        />
+                      </div>
+
+                      <div className="form-group">
+
+                        <label className="form-label" htmlFor="password">
+                          Password
+                  </label>
+                        <input
+                          className="form-control"
+                          type="password"
+                          id="password"
+                          name="password"
+                          value={this.state.password}
+                          onChange={this.handleChange}
+                          placeholder="Password"
+                        />
+
+                      </div>
+
+                      <button onClick={this.handleSubmit} type="submit" className="btn btn-warning">
+                        Log in
+                  </button>
+
+                    </form>
+                    {/* </p> */}
+                  </div>
+
+                  <div className="col"></div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div className="col"></div>
+
           </div>
-          <button onClick={this.handleSubmit} type="submit">
-            Log in
-          </button>
+
+          {/* <Footer /> */}
+
         </div>
+
+        // <div>
+        //   <p>Please log in to continue</p>
+
+        // <div className="form-group">
+        //   <label className="form-label" htmlFor="username">
+        //     Username
+        //     </label>
+        //   <input
+        //     className="form-input"
+        //     type="text"
+        //     id="username"
+        //     name="username"
+        //     value={this.state.username}
+        //     onChange={this.handleChange}
+        //     placeholder="Username"
+        //   />
+        //   <label className="form-label" htmlFor="password">
+        //     Password
+        //     </label>
+        //   <input
+        //     className="form-input"
+        //     type="password"
+        //     id="password"
+        //     name="password"
+        //     value={this.state.password}
+        //     onChange={this.handleChange}
+        //     placeholder="Password"
+        //   />
+        // </div>
+
+        // <button onClick={this.handleSubmit} type="submit">
+        //   Log in
+        //   </button>
+
+        // </div>
       );
     }
   }

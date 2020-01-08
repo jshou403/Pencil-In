@@ -6,7 +6,7 @@ https://pencil-in-application.herokuapp.com/
 ---
 
 ### APPLICATION DESCRIPTION:
-
+Pencil In is a full MERN stack application 
 
 ---
 
@@ -24,4 +24,3 @@ https://pencil-in-application.herokuapp.com/
 Aliesa Jackson - [Portfolio](https://jacksonaliesa.github.io/BootstrapPortfolio/) | [GitHub](https://github.com/JacksonAliesa)
 Jacalyn Shou - [Portfolio](http://www.jacalynshou.com/) | [GitHub](https://github.com/jshou403)
 Carmel Meyer - [Portfolio](https://carmel-m.github.io/) | [GitHub](https://github.com/carmel-m)
-
