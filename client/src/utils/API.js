@@ -8,8 +8,11 @@ export default {
         return axios.get("/api/users");
     },
     //this is variable is injecting itself into the route
-   updateAttendance: function(id, status){
+    updateAttendance: function(id, status){
        return axios.put(`/api/students/${id}`, status)
-   }
+    },
+    retrieveChild: function(id, childData){
+        return axios.get(`/api/students/${id}`, childData)
+    }
     
 }

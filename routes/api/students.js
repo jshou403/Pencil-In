@@ -7,8 +7,7 @@ router.route("/")
 .get(studentsController.findAll)
 
 router.route("/:id")
-.put(studentsController.update);
-
-
+.put(studentsController.update)
+.get(studentsController.getChild)
 
 module.exports = router; 
