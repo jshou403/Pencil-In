@@ -8,6 +8,7 @@ module.exports = {
     //       .then(dbStudent => res.json(dbStudent))
     //       .catch(err => res.status(422).json(err));
     //   }
+
     //   findById: function(req, res) {
     //     db.User
     //       .findById(req.params.id)
