@@ -17,7 +17,6 @@ class TeacherHome extends Component {
 	componentDidMount() {
 		this.loadStudents();
 	}
-
 	//need to load specific students for specified teacher
 	loadStudents = () => {
 		console.log('TEACHER HOME LOADED\nGetting students... ');
@@ -33,7 +32,6 @@ class TeacherHome extends Component {
 			})
 			.catch((err) => console.log(err));
 	};
-
 	render() {
 		return (
 			<div>
