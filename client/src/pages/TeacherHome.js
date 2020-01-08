@@ -43,7 +43,7 @@ class TeacherHome extends Component {
 						{/* Display all students tied to this teacher */}
                         {this.state.students.map((student) => 
                         (
-                            <div>
+                            <div className="row px-3">
 							<StudentList
 								id={student._id}
 								key={student._id}
