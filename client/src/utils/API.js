@@ -7,5 +7,9 @@ export default {
     getUsers: function(){
         return axios.get("/api/users");
     },
+    //this is variable is injecting itself into the route
+   updateAttendance: function(id, status){
+       return axios.put(`/api/students/${id}`, status)
+   }
     
 }

@@ -17,8 +17,7 @@ class TeacherHome extends Component {
 	componentDidMount() {
 		this.loadStudents();
 	}
-
-	//need to load specific students for specified teacher
+	//need to load specific students for specified teacher(user)
 	loadStudents = () => {
 		console.log('TEACHER HOME LOADED\nGetting students... ');
 		API.getStudents()
@@ -32,7 +31,8 @@ class TeacherHome extends Component {
 				});
 			})
 			.catch((err) => console.log(err));
-	};
+    };
+    
 
 	render() {
 		return (
@@ -41,16 +41,18 @@ class TeacherHome extends Component {
 				<Wrapper>
 					<Table>
 						{/* Display all students tied to this teacher */}
-						{this.state.students.map((student) => (
+                        {this.state.students.map((student) => 
+                        (
+                            <div>
 							<StudentList
 								id={student._id}
 								key={student._id}
 								firstName={student.firstname}
 								lastName={student.lastname}
 							>
-								<StudentAttendance />
 							</StudentList>
-						))}
+                            <StudentAttendance student={student} />
+                            </div>))}
 					</Table>
 				</Wrapper>
 				<Footer />

@@ -3,8 +3,8 @@ import Wrapper from '../components/Wrapper';
 import Nav from '../components/Nav';
 import ChildCard from '../components/ChildCard';
 import API from '../utils/API';
-import Footer from "../components/Footer";
-import Table from "../components/Table";
+import Footer from '../components/Footer';
+import Table from '../components/Table';
 
 class ParentHome extends Component {
 	state = {
@@ -26,6 +26,23 @@ class ParentHome extends Component {
 			console.log('--- End Students Response ---');
 			this.setState({ students: res.data });
 		});
+	};
+
+	//need to load attendance status to display to parent user
+	//get the updated attendance status 
+	studentStatus = () => {
+		console.log('TEACHER HOME LOADED\nGetting students... ');
+		API.getStatus()
+			.then((res) => {
+				console.log('--- Students Response Start ---');
+				console.log(JSON.stringify(res.data));
+				console.log('--- End Students Response ---');
+				//if statement to get user ID
+				this.setState({
+					students: res.data
+				});
+			})
+			.catch((err) => console.log(err));
 	};
 
 	render() {

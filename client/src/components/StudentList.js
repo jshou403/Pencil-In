@@ -1,5 +1,4 @@
 import React from 'react';
-import StudentAttendance from './StudentAttendance';
 
 //pass in student prop from teacherhome.js
 function StudentList(student) {
@@ -8,7 +7,6 @@ function StudentList(student) {
 			<div className="col px-md-5 mt-3">
 				{student.firstName} {student.lastName}
 			</div>
-			<StudentAttendance />
 		</div>
 	);
 }
