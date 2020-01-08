@@ -53,9 +53,9 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav className="navbar d-flex align-content-end navbar-expand navbar-dark bg-success">
+      <nav className="navbar navbar-expand-md navbar-dark bg-success">
         {this.renderRedirect()}
-        <a className="navbar-brand text-light d-flex justify-content-end" href="#">
+        <a className="navbar-brand text-light" href="#">
           Welcome, {this.state.user.username}
         </a>
         <button
