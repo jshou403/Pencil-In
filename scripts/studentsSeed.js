@@ -15,7 +15,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "mz-frizz-1",
         parent: "mr_perl",
-        present: false
+        present: ""
     },
     {
         firstname: "Carlos",
@@ -45,7 +45,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "mz-frizz-1",
         parent: "maggie_f",
-        present: false
+        present: ""
     },
     {
 
@@ -56,7 +56,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "mz-frizz-1",
         parent: "maggie_f",
-        present: false
+        present: ""
     },
     {
         firstname: "Phoebe",
@@ -96,7 +96,7 @@ const studentsSeed = [
         grade: 3,
         teacher: "mz-frizz-1",
         parent: "coolmom",
-        present: false
+        present: ""
     }
 ]
 
