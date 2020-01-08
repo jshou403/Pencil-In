@@ -14,11 +14,9 @@ class Nav extends Component {
 
   componentDidMount() {
     this.userInfo().then(response =>
-      this.setState(
-        {
-          user: response.data.user
-        },
-      )
+      this.setState({
+        user: response.data.user
+      })
     );
   }
 
@@ -64,17 +62,18 @@ class Nav extends Component {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-item nav-link active" href="#">
-              Current Link<span className="sr-only">(current)</span>
+          <a className="nav-item nav-link active" href="#">
+             Home<span className="sr-only">(Home)</span>
             </a>
-            <Link className="nav-item nav-link" to="/parent">
-              Parent Home
-            </Link>
-            <Link className="nav-item nav-link" to="/teacher">
-              Teacher Home
-            </Link>
+            <a className="nav-item nav-link active" href="#">
+             My Profile<span className="sr-only">(Profile)</span>
+            </a>
+          <a className="nav-item nav-link active" href="#">
+              Messages<span className="sr-only">(Messages)</span>
+            </a>
             <Link className="nav-item nav-link" to="/" onClick={this.logout}>
               Log Out
             </Link>
@@ -86,3 +85,4 @@ class Nav extends Component {
 }
 
 export default Nav;
+
