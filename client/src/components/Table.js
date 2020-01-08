@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import API from "../utils/API";
+import { SingleCalendar } from "colored-calendar";
 
-class TeacherTable extends Component {
+class Table extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,12 +28,14 @@ class TeacherTable extends Component {
 
   render() {
     return (
-        <div className="card">
-          <h1>{this.state.user.firstname} {this.state.user.lastname}'s Classroom</h1>
-          <div>{this.props.children} </div>    
+        <div>
+          <div className="card card border-success mb-3 p-3 mt-4">
+          <div class="card-header p-2 text-center"><h1 className="px-md-5">Welcome, {this.state.user.firstname} {this.state.user.lastname}<SingleCalendar /></h1></div>
+          {this.props.children} 
+        </div>
         </div>
     );
   }
 }
 
-export default TeacherTable;
+export default Table;

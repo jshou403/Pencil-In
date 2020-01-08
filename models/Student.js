@@ -34,8 +34,7 @@ const StudentSchema = new Schema ({
         ref: "User"
     },
     present: {
-        type: Boolean,
-        default: false
+        type: String
     }
 });
 

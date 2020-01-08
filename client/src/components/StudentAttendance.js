@@ -15,6 +15,7 @@ class StudentAttendance extends Component {
 		});
 	};
 
+	//need to add API put to get students from DB
 	handleFormSubmit = (formSubmitEvent) => {
 		formSubmitEvent.preventDefault();
 		console.log('You have submitted:', this.state.selectedOption);
@@ -24,9 +25,9 @@ class StudentAttendance extends Component {
 		return (
 			<div className="col">
 				<form onSubmit={this.handleFormSubmit}>
-					<div className="row">
+					<div className="row mt-3">
 						<div className="col-sm-3">
-							<label>
+							<label className="text-danger">
 								<input
 									type="radio"
 									value="absent"
@@ -34,10 +35,10 @@ class StudentAttendance extends Component {
 									onChange={this.handleOptionChange}
 								/>
 								Absent
-						</label>
+							</label>
 						</div>
 						<div className="col-sm-3">
-							<label>
+							<label className="text-warning">
 								<input
 									type="radio"
 									value="excused"
@@ -45,10 +46,10 @@ class StudentAttendance extends Component {
 									onChange={this.handleOptionChange}
 								/>
 								Excused
-						</label>
+							</label>
 						</div>
 						<div className="col-sm-3">
-							<label>
+							<label className="text-success">
 								<input
 									type="radio"
 									value="present"
@@ -56,7 +57,7 @@ class StudentAttendance extends Component {
 									onChange={this.handleOptionChange}
 								/>
 								Present
-						</label>
+							</label>
 						</div>
 						<div className="col-sm-3">
 							<Button onSubmit={this.handleFormSubmit} />
