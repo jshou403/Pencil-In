@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
 import Button from './Button';
+import API from '../utils/API';
 
 class StudentAttendance extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			selectedOption: 'absent'
-		};
-	}
-
+	state = {
+		selectedOption: 'absent'
+	};
 	handleOptionChange = (changeEvent) => {
 		this.setState({
 			selectedOption: changeEvent.target.value
 		});
 	};
-
 	//need to add API put to get students from DB
 	handleFormSubmit = (formSubmitEvent) => {
 		formSubmitEvent.preventDefault();
 		console.log('You have submitted:', this.state.selectedOption);
+		API.updateAttendance(this.props.student._id, { present: this.state.selectedOption });
 	};
 
 	render() {
