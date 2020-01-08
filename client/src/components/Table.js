@@ -3,11 +3,7 @@ import axios from "axios";
 import API from "../utils/API";
 import { SingleCalendar } from "colored-calendar";
 
-<<<<<<< HEAD:client/src/components/TeacherTable.js
-class TeacherTable extends Component {
-=======
 class Table extends Component {
->>>>>>> 64a105ef65aa4eaaa9fd1670088c0dd8d9979be7:client/src/components/Table.js
   constructor(props) {
     super(props);
     this.state = {
@@ -42,8 +38,4 @@ class Table extends Component {
   }
 }
 
-<<<<<<< HEAD:client/src/components/TeacherTable.js
-export default TeacherTable;
-=======
 export default Table;
->>>>>>> 64a105ef65aa4eaaa9fd1670088c0dd8d9979be7:client/src/components/Table.js
