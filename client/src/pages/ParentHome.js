@@ -6,6 +6,8 @@ import API from '../utils/API';
 import Footer from '../components/Footer';
 import Table from '../components/Table';
 import axios from "axios";
+import NoteModal from '../components/NoteModal';
+
 
 class ParentHome extends Component {
 	state = {

@@ -1,4 +1,5 @@
 import React from "react";
+import NoteModal from "./NoteModal";
 
 function ChildCard(student) {
 
@@ -19,6 +20,7 @@ function ChildCard(student) {
                     {/* Teacher {student.teacher} - */}
                     Grade {student.grade}
                 </p>
+                <p><NoteModal /></p>
             </div>
         </div>
     )
