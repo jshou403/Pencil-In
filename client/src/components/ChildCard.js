@@ -10,7 +10,6 @@ function ChildCard(student) {
 		{() => student.onClick(student.id)}
 			<div className="card-body">
 				<h4 className="card-text student-card-text text-success">
-					{' '}
 					{student.firstName} {student.lastName}
 				</h4>
 				<p>
@@ -21,7 +20,8 @@ function ChildCard(student) {
 				<div className="card card-body">
 					<h2 className="text-center">{student.attendanceStatus}</h2>
 				</div>
-                <NoteModal />
+
+                		<NoteModal />
 			</div>
 		</div>
 	);
