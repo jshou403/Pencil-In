@@ -3,7 +3,7 @@ import React from 'react';
 function NoteModal() {
 	return (
 		<div>
-			<button type="button" class="btn btn-success btn-sm">
+			<button type="button" class="btn btn-success btn-sm mt-3">
 				<i class="fas fa-plus" />
 				Add Note
 			</button>

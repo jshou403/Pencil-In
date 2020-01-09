@@ -18,31 +18,8 @@ class ParentHome extends Component {
 	};
 
 	componentDidMount() {
-		// this.loadUsername();
-
 		this.getUser()
-		// this.getUserFunction();
-
 	}
-
-	// loadStudents = () => {
-	// 	console.log('PARENT HOME LOADED\nGetting students...');
-	// 	API.getStudents().then((res) => {
-	// 		console.log('--- Students Response Start ---');
-	// 		console.log(JSON.stringify(res.data));
-	// 		console.log('--- End Students Response ---');
-	// 		this.setState({ students: res.data });
-	// 	});
-	// };
-
-	// getUserFunction() {
-	// 	axios
-	// 	.get("user/login", {
-
-	// 	})
-	// }
-
-
 
 	getUser() {
 		axios.get("/user/").then(response => {
@@ -58,8 +35,6 @@ class ParentHome extends Component {
 
 	}
 
-	// need to load attendance status to display to parent user
-	// get the updated attendance status 
 	loadStudents = () => {
 		console.log('TEACHER HOME LOADED\nGetting students... ');
 		var children = [];
@@ -95,7 +70,7 @@ class ParentHome extends Component {
 				<Nav />
 				<Wrapper>
 					<Table>
-						<div className="row mt-3">
+						<div className="row mt-4 mx-5 d-flex justify-content-center">
 							{console.log("student:" + this.state.students)}
 							{/* Display all students tied to this parent */}
 							{this.state.students.map((student) => (
