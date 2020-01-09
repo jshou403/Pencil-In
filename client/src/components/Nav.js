@@ -48,7 +48,7 @@ class Nav extends Component {
     return (
       <nav className="navbar navbar-expand-md navbar-dark bg-success">
         {this.renderRedirect()}
-        <a className="navbar-brand text-light" href="#">
+        <a className="navbar-brand text-dark" href="#">
           {this.state.user.username}
         </a>
         <button

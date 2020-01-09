@@ -110,7 +110,7 @@ class LoginBox extends Component {
 
                   <div className="col-8">
                     <div>
-                      <h1 className="display-3">Walkerville Elementry School</h1>
+                      <h1 className="display-3">Walkerville Elementary School</h1>
 
                       <h3>Student Attendance Tracker</h3>
 

@@ -20,7 +20,8 @@ class StudentAttendance extends Component {
 
 	render() {
 		return (
-			<div className="col">
+			<div className="col d-flex justify-content-end" >
+			{/* <div className="col " > */}
 				<form onSubmit={this.handleFormSubmit}>
 					<div className="row mt-3">
 						<div className="col-sm-3">
