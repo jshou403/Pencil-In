@@ -81,6 +81,7 @@ class LoginBox extends Component {
         }
       })
       .catch(error => {
+        alert("Incorrect username or password.  Please try again.");
         console.log("login error: ");
         console.log(error);
       });
