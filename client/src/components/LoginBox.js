@@ -81,6 +81,7 @@ class LoginBox extends Component {
         }
       })
       .catch(error => {
+        alert("Incorrect username or password.  Please try again.");
         console.log("login error: ");
         console.log(error);
       });
@@ -91,39 +92,37 @@ class LoginBox extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-
-
         <div className="mt-3">
-
           <div className="row">
-
             <div className="col"></div>
 
             <div className="col-8">
               <div className="jumbotron">
-
                 <div className="row">
-
                   <div className="col-4">
-                    <img className="img-fluid" src={require("../utils/images/square-logo-text.png")} />
+                    <img
+                      className="img-fluid"
+                      src={require("../utils/images/square-logo-text.png")}
+                      alt="Pencil In Logo"
+                    />
                   </div>
 
                   <div className="col-8">
                     <div>
-                      <h1 className="display-3">Walkerville Elementary School</h1>
+                      <h1 className="display-3">
+                        Walkerville Elementry School
+                      </h1>
 
                       <h3>Student Attendance Tracker</h3>
 
                       <p className="lead">Please log in to continue.</p>
                     </div>
                   </div>
-
                 </div>
 
                 <hr className="my-4" />
 
                 <div className="row">
-
                   {/* input fields go here */}
                   {/* <p>It uses utility class for typography and spacing to space content out within the larger container.</p> */}
 
@@ -135,12 +134,10 @@ class LoginBox extends Component {
                     {/* log in button goes here */}
 
                     <form>
-
                       <div className="form-group">
-
                         <label className="form-label" htmlFor="username">
                           Username
-                  </label>
+                        </label>
                         <input
                           className="form-control"
                           type="text"
@@ -153,10 +150,9 @@ class LoginBox extends Component {
                       </div>
 
                       <div className="form-group">
-
                         <label className="form-label" htmlFor="password">
                           Password
-                  </label>
+                        </label>
                         <input
                           className="form-control"
                           type="password"
@@ -166,31 +162,28 @@ class LoginBox extends Component {
                           onChange={this.handleChange}
                           placeholder="Password"
                         />
-
                       </div>
 
-                      <button onClick={this.handleSubmit} type="submit" className="btn btn-warning">
+                      <button
+                        onClick={this.handleSubmit}
+                        type="submit"
+                        className="btn btn-warning"
+                      >
                         Log in
-                  </button>
-
+                      </button>
                     </form>
                     {/* </p> */}
                   </div>
 
                   <div className="col"></div>
-
                 </div>
-
               </div>
-
             </div>
 
             <div className="col"></div>
-
           </div>
 
           {/* <Footer /> */}
-
         </div>
 
         // <div>

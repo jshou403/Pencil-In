@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import API from "../utils/API";
+// import API from "../utils/API";
 import { SingleCalendar } from "colored-calendar";
 
 class Table extends Component {
@@ -23,17 +23,22 @@ class Table extends Component {
   }
 
   userInfo = () => {
-  return axios.get("/user/");
-}
+    return axios.get("/user/");
+  };
 
   render() {
     return (
-        <div>
-          <div className="card card border-success mb-3 p-3 mt-4">
-          <div class="card-header p-2 text-center"><h1 className="px-md-5">Welcome, {this.state.user.firstname} {this.state.user.lastname}<SingleCalendar /></h1></div>
-          {this.props.children} 
+      <div>
+        <div className="card card border-success mb-3 p-3 mt-4">
+          <div className="card-header p-2 text-center">
+            <h1 className="px-md-5">
+              Welcome, {this.state.user.firstname} {this.state.user.lastname}
+            </h1>
+            <SingleCalendar />
+          </div>
+          {this.props.children}
         </div>
-        </div>
+      </div>
     );
   }
 }
