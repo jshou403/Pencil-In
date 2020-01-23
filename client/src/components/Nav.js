@@ -48,8 +48,8 @@ class Nav extends Component {
     return (
       <nav className="navbar navbar-expand-md navbar-dark bg-success">
         {this.renderRedirect()}
-        <a className="navbar-brand text-light" href="#">
-          Welcome, {this.state.user.username}
+        <a className="navbar-brand text-dark" href="#">
+          {this.state.user.username}
         </a>
         <button
           className="navbar-toggler"
@@ -65,9 +65,6 @@ class Nav extends Component {
 
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-          <a className="nav-item nav-link active" href="#">
-             Home<span className="sr-only">(Home)</span>
-            </a>
             <a className="nav-item nav-link active" href="#">
              My Profile<span className="sr-only">(Profile)</span>
             </a>

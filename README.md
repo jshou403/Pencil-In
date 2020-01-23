@@ -23,8 +23,6 @@ Pencil In is a full MERN stack application that allows teachers and parents to u
 
 * The *Parent* portal displays the attendance status of the parent's child or children for the current day.
 
-* The *Parent* portal displays the attendance status of the parent's child or children for the current day.
-
 * Hit the Log Out button to exit the portal and go back to the Log In page.
 
 
