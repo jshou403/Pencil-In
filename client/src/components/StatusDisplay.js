@@ -4,7 +4,8 @@ class StatusDisplay extends Component {
 
     render() {
 
-        const status = this.props.status;
+        // const status = this.props.status;
+        const { status } = this.props;
         let icon = null;
 
         switch (status) {
@@ -21,7 +22,7 @@ class StatusDisplay extends Component {
                 break;
 
             default:
-                icon = <div className="text-black-50 text-center"><h1><i className="fas fa-question" /></h1></div>;
+                icon = <div className="text-black-50 text-center"><h1><i className="fas fa-question" /></h1><p className="text-center">PENDING</p></div>;
                 break;
         }
 
