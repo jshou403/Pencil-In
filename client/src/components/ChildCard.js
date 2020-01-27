@@ -1,5 +1,6 @@
 import React from 'react';
 import NoteModal from './NoteModal';
+import StatusDisplay from './StatusDisplay';
 
 function ChildCard(student) {
 	return (
@@ -17,9 +18,11 @@ function ChildCard(student) {
 					Grade {student.grade}
 				</p>
 
-				<div className="card card-body">
+				{/* <div className="card card-body">
 					<h2 className="text-center">{student.attendanceStatus}</h2>
-				</div>
+				</div> */}
+
+				<StatusDisplay status={student.attendanceStatus} />
 
                 		<NoteModal />
 			</div>
