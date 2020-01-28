@@ -1,6 +1,11 @@
 import React from 'react';
 import Modal from './Modal';
+<<<<<<< HEAD
 
+=======
+// import Modal from 'react-awesome-modal';
+import StatusDisplay from './StatusDisplay';
+>>>>>>> 469665173ef7ab45924a994497c12dbec4923e57
 
 function ChildCard(student) {
 	return (
@@ -18,9 +23,11 @@ function ChildCard(student) {
 					Grade {student.grade}
 				</p>
 
-				<div className="card card-body">
+				{/* <div className="card card-body">
 					<h2 className="text-center">{student.attendanceStatus}</h2>
-				</div>
+				</div> */}
+
+				<StatusDisplay status={student.attendanceStatus} />
 
 				<Modal />
 			</div>
