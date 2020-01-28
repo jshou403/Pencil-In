@@ -1,7 +1,6 @@
 import React from 'react';
-// import NoteModal from './NoteModal';
 import Modal from './Modal';
-// import Modal from 'react-awesome-modal';
+
 
 function ChildCard(student) {
 	return (
