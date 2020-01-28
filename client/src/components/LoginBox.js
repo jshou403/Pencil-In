@@ -8,6 +8,7 @@ import {
   // withRouter
 } from "react-router-dom";
 import axios from "axios";
+import Modal from "react-awesome-modal";
 // import Footer from "./Footer";
 
 class LoginBox extends Component {
@@ -19,7 +20,8 @@ class LoginBox extends Component {
       password: "",
       id: "",
       userType: "",
-      redirectTo: null
+      redirectTo: null,
+      visible: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -31,6 +33,18 @@ class LoginBox extends Component {
   }
   updateUser(userObject) {
     this.setState(userObject);
+  }
+
+  openModal() {
+    this.setState({
+      visible: true
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      visible: false
+    });
   }
 
   handleChange(event) {
@@ -81,7 +95,8 @@ class LoginBox extends Component {
         }
       })
       .catch(error => {
-        alert("Incorrect username or password.  Please try again.");
+        this.openModal();
+        // alert("Incorrect username or password.  Please try again.");
         console.log("login error: ");
         console.log(error);
       });
@@ -109,7 +124,7 @@ class LoginBox extends Component {
 
                   <div className="col-8">
                     <div>
-                      <h1 className="display-3">
+                      <h1>
                         Walkerville Elementry School
                       </h1>
 
@@ -171,6 +186,21 @@ class LoginBox extends Component {
                       >
                         Log in
                       </button>
+                      <Modal
+                        visible={this.state.visible}
+                        effect="fadeInUp"
+                        onClickAway={() => this.closeModal()}
+                      >
+                        <div className="card card-body">
+                          <p>Incorrect username or password.  Please try again.</p>
+                          <a
+                            href="javascript:void(0);"
+                            onClick={() => this.closeModal()}
+                          >
+                           OK
+                          </a>
+                        </div>
+                      </Modal>
                     </form>
                     {/* </p> */}
                   </div>
@@ -185,42 +215,6 @@ class LoginBox extends Component {
 
           {/* <Footer /> */}
         </div>
-
-        // <div>
-        //   <p>Please log in to continue</p>
-
-        // <div className="form-group">
-        //   <label className="form-label" htmlFor="username">
-        //     Username
-        //     </label>
-        //   <input
-        //     className="form-input"
-        //     type="text"
-        //     id="username"
-        //     name="username"
-        //     value={this.state.username}
-        //     onChange={this.handleChange}
-        //     placeholder="Username"
-        //   />
-        //   <label className="form-label" htmlFor="password">
-        //     Password
-        //     </label>
-        //   <input
-        //     className="form-input"
-        //     type="password"
-        //     id="password"
-        //     name="password"
-        //     value={this.state.password}
-        //     onChange={this.handleChange}
-        //     placeholder="Password"
-        //   />
-        // </div>
-
-        // <button onClick={this.handleSubmit} type="submit">
-        //   Log in
-        //   </button>
-
-        // </div>
       );
     }
   }
