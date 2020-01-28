@@ -1,5 +1,7 @@
 import React from 'react';
-import NoteModal from './NoteModal';
+// import NoteModal from './NoteModal';
+import Modal from './Modal';
+// import Modal from 'react-awesome-modal';
 import StatusDisplay from './StatusDisplay';
 
 function ChildCard(student) {
@@ -8,7 +10,7 @@ function ChildCard(student) {
 		// image, id, name, teacher, grade, onClick = named on ParentHome page
 
 		<div className="col-sm-10 col-md-6 col-lg-4 card card bg-light mx-3 mb-3">
-		{/* {() => student.onClick(student.id)} */}
+			{/* {() => student.onClick(student.id)} */}
 			<div className="card-body">
 				<h4 className="card-text student-card-text text-success">
 					{student.firstName} {student.lastName}
@@ -24,7 +26,7 @@ function ChildCard(student) {
 
 				<StatusDisplay status={student.attendanceStatus} />
 
-                		<NoteModal />
+				<Modal />
 			</div>
 		</div>
 	);

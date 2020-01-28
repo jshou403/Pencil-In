@@ -16,7 +16,7 @@ class StatusDisplay extends Component {
                 break;
 
             case "excused":
-                icon = <div className="text-success text-center">
+                icon = <div className="text-warning text-center">
                     <img className="img-fluid" src={require("./../utils/images/statusicons/excused.png")} alt="Excused" />
                     <p className="text-center">EXCUSED</p></div>;
                 break;
