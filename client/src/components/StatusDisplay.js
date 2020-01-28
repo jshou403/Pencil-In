@@ -10,24 +10,31 @@ class StatusDisplay extends Component {
 
         switch (status) {
             case "present":
-                icon = <div className="text-success text-center"><h1><i className="fas fa-check-square" /></h1><p className="text-center">PRESENT</p></div>;
+                icon = <div className="text-success text-center">
+                    <img className="img-fluid" src={require("./../utils/images/statusicons/present.png")} alt="Present" />
+                    <p className="text-center">PRESENT</p></div>;
                 break;
 
             case "excused":
-                icon = <div className="text-success text-center"><h1><i className="fas fa-times" /></h1><p className="text-center">EXCUSED</p></div>;
+                icon = <div className="text-success text-center">
+                    <img className="img-fluid" src={require("./../utils/images/statusicons/excused.png")} alt="Excused" />
+                    <p className="text-center">EXCUSED</p></div>;
                 break;
 
             case "absent":
-                icon = <div className="text-danger text-center"><h1><i className="fas fa-times" /></h1><p className="text-center">ABSENT</p></div>;
+                icon = <div className="text-danger text-center">
+                    <img className="img-fluid" src={require("./../utils/images/statusicons/absent.png")} alt="Absent" />
+                    <h4 className="text-center">ABSENT</h4></div>;
                 break;
 
             default:
-                icon = <div className="text-black-50 text-center"><h1><i className="fas fa-question" /></h1><p className="text-center">PENDING</p></div>;
+                icon = <div className="text-black-50 text-center">
+                    <img className="img-fluid" src={require("./../utils/images/statusicons/default.png")} alt="Not Marked Yet" />
+                    <h4 className="text-center">PENDING</h4></div>;
                 break;
         }
 
         return (
-            // <div className="card card-body">
             <div>
                 {icon}
                 {/* <p className="text-center">{this.props.status}</p> */}
