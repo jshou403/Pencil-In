@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Button from './Button';
 import API from '../utils/API';
 
 class StudentAttendance extends Component {
