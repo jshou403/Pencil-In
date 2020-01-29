@@ -1,41 +1,37 @@
-import React, { Component } from 'react';
-import Modal from 'react-awesome-modal';
+import React, {Component} from 'react';
+import {Modal, Button, Form, Col, Row} from 'react-bootstrap';
 
-export default class Examples extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible : false
-        }
-    }
 
-    openModal() {
-        this.setState({
-            visible : true
-        });
-    }
+ 
+export class NoteModal extends Component {
+	constructor(props){
+		super(props);
+	}
 
-    closeModal() {
-        this.setState({
-            visible : false
-        });
-    }
-
-    render() {
-        return (
-            <section>
-                <button type="button" className="btn btn-success btn-sm mt-3" value="Open" onClick={() => this.openModal()} >
-				<i className="fas fa-plus" />
-				Add Note
-			</button>
-                <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
-                    <div>
-                        <h1>Add Note</h1>
-                        <p>Form Goes Here</p>
-                        <a href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
-                    </div>
-                </Modal>
-            </section>
-        );
-    }
+	render(){
+		return(
+			<Modal
+			{...this.props}
+			size="lg"
+			aria-labelledby="contained-modal-title-vcenter"
+			centered
+		  >
+			<Modal.Header closeButton>
+			  <Modal.Title id="contained-modal-title-vcenter">
+				Add Excused Attendance Note
+			  </Modal.Title>
+			</Modal.Header>
+			<Modal.Body>
+			 <div className="container">
+				 Form goes here
+				 </div>
+			</Modal.Body>
+			<Modal.Footer>
+			  <Button variant="danger" onClick={this.props.onHide}>Close</Button>
+			</Modal.Footer>
+		  </Modal>
+		)
+	}
 }
+
+export default Modal;
