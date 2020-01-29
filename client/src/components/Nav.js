@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Redirect } from "react-router-dom";
+import Modal from "react-awesome-modal";
 import axios from "axios";
 
 class Nav extends Component {
@@ -8,7 +9,8 @@ class Nav extends Component {
     this.logout = this.logout.bind(this);
     this.state = {
       redirect: false,
-      user: {}
+      user: {},
+      visible: false
     };
   }
 
@@ -18,6 +20,18 @@ class Nav extends Component {
         user: response.data.user
       })
     );
+  }
+
+  openModal() {
+    this.setState({
+      visible: true
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      visible: false
+    });
   }
 
   userInfo() {
@@ -65,12 +79,35 @@ class Nav extends Component {
 
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-item nav-link active" href="#">
-             My Profile<span className="sr-only">(Profile)</span>
+            <a
+              className="nav-item nav-link active"
+              href="#"
+              onClick={() => this.openModal()}
+            >
+              My Profile<span className="sr-only">(Profile)</span>
             </a>
-          <a className="nav-item nav-link active" href="#">
+
+            <a
+              className="nav-item nav-link active"
+              href="#"
+              onClick={() => this.openModal()}
+            >
               Messages<span className="sr-only">(Messages)</span>
             </a>
+
+            <Modal
+              visible={this.state.visible}
+              effect="fadeInDown"
+              onClickAway={() => this.closeModal()}
+            >
+              <div className="card card-body">
+                <p>Feature in progress. Check back again soon!</p>
+                <a href="javascript:void(0);" onClick={() => this.closeModal()}>
+                  OK
+                </a>
+              </div>
+            </Modal>
+
             <Link className="nav-item nav-link" to="/" onClick={this.logout}>
               Log Out
             </Link>
@@ -82,4 +119,3 @@ class Nav extends Component {
 }
 
 export default Nav;
-
