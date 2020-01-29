@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 import Modal from "react-awesome-modal";
-// import Footer from "./Footer";
 
 class LoginBox extends Component {
   constructor(props) {
@@ -63,7 +62,6 @@ class LoginBox extends Component {
       .post("/user/login", {
         username: this.state.username,
         password: this.state.password
-        // userType: this.state.teacher
       })
       .then(response => {
         console.log("login response: ");
@@ -96,7 +94,6 @@ class LoginBox extends Component {
       })
       .catch(error => {
         this.openModal();
-        // alert("Incorrect username or password.  Please try again.");
         console.log("login error: ");
         console.log(error);
       });
@@ -124,9 +121,7 @@ class LoginBox extends Component {
 
                   <div className="col-8">
                     <div>
-                      <h1>
-                        Walkerville Elementry School
-                      </h1>
+                      <h1>Walkerville Elementary School</h1>
 
                       <h3>Student Attendance Tracker</h3>
 
@@ -138,16 +133,8 @@ class LoginBox extends Component {
                 <hr className="my-4" />
 
                 <div className="row">
-                  {/* input fields go here */}
-                  {/* <p>It uses utility class for typography and spacing to space content out within the larger container.</p> */}
-
                   <div className="col"></div>
-
                   <div className="col-sm-10">
-                    {/* <p className="lead"> */}
-
-                    {/* log in button goes here */}
-
                     <form>
                       <div className="form-group">
                         <label className="form-label" htmlFor="username">
@@ -192,17 +179,18 @@ class LoginBox extends Component {
                         onClickAway={() => this.closeModal()}
                       >
                         <div className="card card-body">
-                          <p>Incorrect username or password.  Please try again.</p>
+                          <p>
+                            Incorrect username or password. Please try again.
+                          </p>
                           <a
                             href="javascript:void(0);"
                             onClick={() => this.closeModal()}
                           >
-                           OK
+                            OK
                           </a>
                         </div>
                       </Modal>
                     </form>
-                    {/* </p> */}
                   </div>
 
                   <div className="col"></div>
@@ -212,8 +200,6 @@ class LoginBox extends Component {
 
             <div className="col"></div>
           </div>
-
-          {/* <Footer /> */}
         </div>
       );
     }
