@@ -72,8 +72,8 @@ class LoginBox extends Component {
           });
 
           // update App.js state
-          console.log("working");
-          console.log("This is the props userType: " + this.state.userType);
+          // console.log("working");
+          // console.log("This is the props userType: " + this.state.userType);
           this.props.updateUser({
             loggedIn: true,
             username: response.data.username,
@@ -108,7 +108,7 @@ class LoginBox extends Component {
           <div className="row">
             <div className="col"></div>
 
-            <div className="col-8">
+            <div className="col-sm-12 col-md-8">
               <div className="jumbotron">
                 <div className="row">
                   <div className="col-4">
