@@ -24,13 +24,13 @@ class StatusDisplay extends Component {
             case "absent":
                 icon = <div className="text-danger text-center">
                     <img className="img-fluid" src={require("./../utils/images/statusicons/absent.png")} alt="Absent" />
-                    <h4 className="text-center">ABSENT</h4></div>;
+                    <p className="text-center">ABSENT</p></div>;
                 break;
 
             default:
                 icon = <div className="text-black-50 text-center">
                     <img className="img-fluid" src={require("./../utils/images/statusicons/default.png")} alt="Not Marked Yet" />
-                    <h4 className="text-center">PENDING</h4></div>;
+                    <p className="text-center">PENDING</p></div>;
                 break;
         }
 
